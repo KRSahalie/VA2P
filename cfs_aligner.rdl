@@ -1,0 +1,122 @@
+//Modelo RDL del los registros para pasar por ral
+//no sé por qué lo reconoce como JS 
+addrmap cfs_aligner_regs {
+    default sw = rw;
+    default hw = rw;
+    
+    // Registro CTRL @ offset 0x0000
+    reg {
+        desc = "Registro de control para configuracion";
+        
+        // Orden determina posición: primero = LSB (bits 2:0)
+        field {
+            desc = "Tamano de los datos alineados en bytes. El valor 0 es ilegal";
+            sw = rw;
+            hw = rw;
+        } size[3] = 0x1;
+        
+        // Segundo campo = bits siguientes (bits 4:3)
+        
+        // Campo reservado para llegar a bit 8
+        field {
+            desc = "Reservado";
+            sw = r;
+            hw = r;
+        } reserved0[4] = 0x0;    // bits 7:4
+        
+        // Ahora offset empieza en bit 8
+        field {
+            desc = "Offset de bytes para el alineamiento dentro de cada palabra";
+            sw = rw;
+            hw = rw;
+        } offset[2] = 0x0;       // bits 9:8
+        
+        // Más reservados para llegar a bit 16
+        field {
+            desc = "Reservado";
+            sw = r;
+            hw = r;
+        } reserved1[6] = 0x0;    // bits 15:10
+        
+        // CLR en bit 16
+        field {
+            desc = "Escribir 1 para un clear del contador STATUS.CNT_DROP";
+            sw = w;
+            hw = rw;
+        } clr[1] = 0x0;          // bit 16
+        
+    } ctrl @ 0x0000;
+    
+    // Registro STATUS @ offset 0x000C
+    reg {
+        desc = "Registro de control con niveles fifo y drop counter";
+        
+        // bits 7:0
+        field {
+            desc = "Numero de transferencias invalidas";
+            sw = r;
+            hw = rw;
+        } cnt_drop[8] = 0x00;
+        
+        // bits 11:8
+        field {
+            desc = "Almacenamiento actual de la fifo RX";
+            sw = r;
+            hw = rw;
+        } rx_lvl[4] = 0x0;
+        
+        // bits 15:12 reservados
+        field {
+            desc = "Reservadp";
+            sw = r;
+            hw = r;
+        } reserved0[4] = 0x0;
+        
+        // bits 19:16
+        field {
+            desc = "Almacenamiento actual de la fifo TX";
+            sw = r;
+            hw = rw;
+        } tx_lvl[4] = 0x0;
+        
+        // resto reservados
+        field {
+            desc = "Reservado";
+            sw = r;
+            hw = r;
+        } reserved1[12] = 0x0;
+        
+    } status @ 0x000C;
+    
+    // Registro IRQEN @ offset 0x00F0
+    reg {
+        desc = "Registro de interrupciones";
+        
+        // bits 4:0
+        field { sw = rw; hw = r; } rx_fifo_empty[1] = 0x1;
+        field { sw = rw; hw = r; } rx_fifo_full[1]  = 0x1;
+        field { sw = rw; hw = r; } tx_fifo_empty[1] = 0x1;
+        field { sw = rw; hw = r; } tx_fifo_full[1]  = 0x1;
+        field { sw = rw; hw = r; } max_drop[1]      = 0x1;
+        
+        // bits 31:5 reservados
+        field { sw = r; hw = r; } reserved[27] = 0x0;
+        
+    } irqen @ 0x00F0;
+    
+    // Registro IRQ @ offset 0x00F4 (W1C)
+    reg {
+        desc = "Interruptor del registro de estado (W1C)";
+        
+        // bits 4:0 - W1C behavior
+        field { sw = rw; onwrite = woclr; hw = rw; } rx_fifo_empty[1] = 0x0;
+        field { sw = rw; onwrite = woclr; hw = rw; } rx_fifo_full[1]  = 0x0;
+        field { sw = rw; onwrite = woclr; hw = rw; } tx_fifo_empty[1] = 0x0;
+        field { sw = rw; onwrite = woclr; hw = rw; } tx_fifo_full[1]  = 0x0;
+        field { sw = rw; onwrite = woclr; hw = rw; } max_drop[1]      = 0x0;
+        
+        // bits 31:5 reservados
+        field { sw = r; hw = r; } reserved[27] = 0x0;
+        
+    } irq @ 0x00F4;
+};
