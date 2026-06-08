@@ -52,7 +52,7 @@ package scoreboard_pkg;
             while (pending_bytes.size() >= cfg_size) begin
                 tx_transaction tx = tx_transaction::type_id::create("tx");
                 tx.size   = cfg_size;
-                tx.offset = cfg_offset;
+                tx.offset = 2'b00;
                 tx.valid  = 1;
                 tx.err    = 0;
                 tx.data = 32'h0;
@@ -179,10 +179,10 @@ package scoreboard_pkg;
                 $sformatf("[TX] data=0x%08X off=%0d size=%0d", tr.data, tr.offset, tr.size),
                 UVM_MEDIUM)
             
-            if (tr.offset !== model.cfg_offset) begin
+            if (tr.offset !== 2'b00) begin
                 `uvm_error(get_type_name(),
-                    $sformatf("TX OFFSET INCORRECTO: recibido=%0d esperado=%0d (CTRL.OFFSET)",
-                              tr.offset, model.cfg_offset))
+                    $sformatf("TX OFFSET INCORRECTO: recibido=%0d esperado=0 (debe ser siempre 0)",
+                              tr.offset))
                 error_count++;
                 return;
             end
