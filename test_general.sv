@@ -16,7 +16,6 @@ class test_general extends uvm_test;
 
     aligner_env env;
 
-    // Configuración
     int    semilla;
     string test_mode;
     int    apb_num_trans;
@@ -114,7 +113,6 @@ class test_general extends uvm_test;
         if (status != UVM_IS_OK)
             `uvm_error(get_type_name(), "Fallo al configurar CTRL")
 
-        // Notificar al scoreboard con la config confirmada
         env.set_sb_config(ctrl_offset, ctrl_size);
 
         `uvm_info(get_type_name(),
@@ -133,6 +131,29 @@ class test_general extends uvm_test;
         `uvm_info(get_type_name(), "IRQEN configurado (todas las interrupciones habilitadas)", UVM_LOW)
     endtask
 
+    // =========================================================================
+    // [FIX-BUG-A] drain_dut_pipeline: espera a que el DUT vacíe sus FIFOs
+    // antes de armar el scoreboard. Así los TX residuales del reset no
+    // llegan al scoreboard armado.
+    // =========================================================================
+    task drain_dut_pipeline();
+        uvm_status_e   status;
+        uvm_reg_data_t rd_data;
+        int max_wait = 1000;
+
+        `uvm_info(get_type_name(), "Drenando pipeline del DUT...", UVM_LOW)
+        while (max_wait > 0) begin
+            env.reg_model.status.read(status, rd_data);
+            if (rd_data[19:8] == 12'h0) break;  // rx_lvl[11:8] + tx_lvl[19:16] == 0
+            #100;
+            max_wait--;
+        end
+        if (max_wait == 0)
+            `uvm_warning(get_type_name(), "Timeout drenando pipeline — FIFOs no vaciaron")
+        else
+            `uvm_info(get_type_name(), "Pipeline drenado OK", UVM_LOW)
+    endtask
+
     task test_apb();
         uvm_status_e   status;
         uvm_reg_data_t rd_data;
@@ -149,7 +170,6 @@ class test_general extends uvm_test;
             op = $urandom_range(0, 9);
 
             case(op)
-                // Lecturas (40%)
                 0,1,2,3: begin
                     reg_sel = $urandom_range(0, 3);
                     case(reg_sel)
@@ -159,7 +179,6 @@ class test_general extends uvm_test;
                         3: env.reg_model.irq.read(status, rd_data);
                     endcase
                 end
-                // Escritura CTRL válida (20%)
                 4,5: begin
                     valid_sizes.delete();
                     valid_offsets.delete();
@@ -173,13 +192,7 @@ class test_general extends uvm_test;
                         env.reg_model.ctrl.offset.set(new_offset);
                         env.reg_model.ctrl.update(status);
 
-                        // =====================================================
-                        // [FIX-BUG2] Solo actualizar el scoreboard si el DUT
-                        // realmente aceptó el write (status == UVM_IS_OK Y
-                        // la combinación es válida según nuestra función).
-                        // Así evitamos desincronizar el modelo cuando el RAL
-                        // reporta OK pero el DUT devolvió PSLVERR.
-                        // =====================================================
+                        // [FIX-BUG2] Solo actualizar scoreboard si DUT aceptó
                         if (status == UVM_IS_OK && is_valid_ctrl(new_size, new_offset)) begin
                             env.set_sb_config(new_offset, new_size);
                             ctrl_size   = new_size;
@@ -187,25 +200,22 @@ class test_general extends uvm_test;
                             successful_writes++;
                         end else begin
                             `uvm_warning(get_type_name(), $sformatf(
-                                "CTRL write rechazado por DUT: size=%0d offset=%0d — scoreboard NO actualizado",
+                                "CTRL write rechazado por DUT: size=%0d offset=%0d — sb NO actualizado",
                                 new_size, new_offset))
                         end
                     end
                 end
-                // Escritura CTRL inválida (10%) — no actualizar scoreboard
                 6: begin
+                    // Escritura inválida — no actualizar scoreboard
                     env.reg_model.ctrl.size.set(0);
                     env.reg_model.ctrl.offset.set($urandom_range(0, 3));
                     env.reg_model.ctrl.update(status);
                     if (status == UVM_NOT_OK) illegal_writes++;
-                    // [FIX-BUG2] No llamar set_sb_config aquí — el DUT rechaza
                 end
-                // Escritura IRQEN (20%)
                 7,8: begin
                     env.reg_model.irqen.rx_fifo_empty.set($urandom_range(0, 1));
                     env.reg_model.irqen.update(status);
                 end
-                // Clear IRQ (10%)
                 9: begin
                     env.reg_model.irq.write(status, 'h1F);
                 end
@@ -215,7 +225,7 @@ class test_general extends uvm_test;
         end
 
         `uvm_info(get_type_name(), $sformatf(
-            "APB test completado: escrituras exitosas=%0d, ilegales=%0d",
+            "APB test completado: exitosas=%0d ilegales=%0d",
             successful_writes, illegal_writes), UVM_LOW)
     endtask
 
@@ -248,21 +258,40 @@ class test_general extends uvm_test;
         rx_seq.patron    = md_patron;
         rx_seq.start(env.rx_agt.sequencer);
 
-        // Esperar a que el pipeline drene
+        // =====================================================================
+        // [FIX-BUG-B] Esperar a que el DUT drene sus FIFOs (tx_lvl=0, rx_lvl=0)
+        // además de que el modelo no tenga TX pendientes.
+        // Si pending_bytes > 0 al final, es normal — no alcanzaron cfg_size bytes.
+        // =====================================================================
         max_cycles = timeout_ms * 10_000;
-        while (max_cycles > 0 &&
-               (env.sb.model.get_pending_count() > 0 ||
-                env.sb.expected_tx_queue.size()  > 0)) begin
-            #100;
-            max_cycles--;
+        begin
+            uvm_status_e   status;
+            uvm_reg_data_t rd_data;
+            bit dut_empty;
+
+            while (max_cycles > 0) begin
+                env.reg_model.status.read(status, rd_data);
+                dut_empty = (rd_data[19:8] == 12'h0);  // rx_lvl + tx_lvl = 0
+
+                // Terminamos cuando:
+                //  a) DUT FIFOs vacíos, Y
+                //  b) modelo no tiene TX esperados pendientes, O
+                //     si tiene pending_bytes > 0 (word incompleto — nunca saldra TX)
+                if (dut_empty &&
+                    (env.sb.expected_tx_queue.size() == 0 ||
+                     env.sb.model.get_pending_count() > 0))
+                    break;
+
+                #100;
+                max_cycles--;
+            end
         end
 
-        if (max_cycles == 0) begin
+        if (max_cycles == 0)
             `uvm_warning(get_type_name(), $sformatf(
-                "Timeout esperando TX finales: pending_bytes=%0d, expected_tx=%0d",
+                "Timeout: pending_bytes=%0d, expected_tx=%0d",
                 env.sb.model.get_pending_count(),
                 env.sb.expected_tx_queue.size()))
-        end
 
         `uvm_info(get_type_name(), "MD test completado", UVM_LOW)
     endtask
@@ -296,11 +325,22 @@ class test_general extends uvm_test;
         leer_plusargs();
         imprimir_configuracion();
 
-        #200;  // Esperar reset HW
+        // Esperar reset HW
+        #200;
 
         configurar_ctrl();
         configurar_irqen();
+
+        // =====================================================================
+        // [FIX-BUG-A] Secuencia de arranque limpio:
+        //   1. reset_counters() — desarma el scoreboard
+        //   2. drain_dut_pipeline() — espera que FIFOs del DUT estén vacíos
+        //   3. arm() — arma el scoreboard, ahora sí se verifican TX/RX
+        // Así cualquier TX residual del DUT antes del test no genera errores.
+        // =====================================================================
         env.sb.reset_counters();
+        drain_dut_pipeline();
+        env.sb.arm();
 
         case(test_mode)
             "APB_ONLY": begin
@@ -325,13 +365,6 @@ class test_general extends uvm_test;
 
         #2000;
         verificar();
-
-        // =====================================================================
-        // [FIX-BUG3] Eliminar el "=== TEST PASADO ===" de aquí.
-        // El veredicto real lo da el scoreboard en check_phase (que corre
-        // después de run_phase). Ponerlo aquí confunde el log porque aparece
-        // "PASADO" antes de que el scoreboard haya verificado nada.
-        // =====================================================================
 
         phase.drop_objection(this);
     endtask

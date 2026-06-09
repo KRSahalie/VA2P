@@ -12,10 +12,8 @@ package scoreboard_pkg;
         logic [2:0] cfg_size;
         localparam int BYTES_PER_WORD = 4;
 
-        // Buffer de bytes válidos aún no alineados
         logic [7:0] pending_bytes[$];
 
-        // Estadísticas
         int tx_packets_generated = 0;
         int rx_packets_consumed  = 0;
 
@@ -24,27 +22,15 @@ package scoreboard_pkg;
             cfg_size   = 3'd4;
         endfunction
 
-        // =====================================================================
-        // [FIX-BUG1] set_config ahora vacía pending_bytes.
-        //
-        // Cuando el DUT recibe un write válido a CTRL, internamente descarta
-        // los bytes que tenía acumulados (el ctrl_clr resetea el pipeline
-        // del cfs_ctrl). El modelo de referencia debe hacer lo mismo:
-        // si cambia cfg mientras hay bytes pendientes, esos bytes ya no
-        // producirán TX con la nueva config → limpiar la cola.
-        // =====================================================================
+        // [FIX-BUG1] Al cambiar config, flush de pending_bytes igual que hace el DUT
         function void set_config(logic [1:0] offset, logic [2:0] size);
             if (offset !== cfg_offset || size !== cfg_size) begin
-                if (pending_bytes.size() > 0) begin
-                    // El DUT resetea su pipeline al cambiar CTRL
-                    pending_bytes.delete();
-                end
+                pending_bytes.delete();
                 cfg_offset = offset;
                 cfg_size   = size;
             end
         endfunction
 
-        // Procesar un paquete RX y generar los TX esperados
         function void process_rx_packet(rx_transaction rx, ref tx_transaction tx_queue[$]);
             logic [7:0] rx_bytes[0:3];
             int src_byte_idx;
@@ -52,22 +38,19 @@ package scoreboard_pkg;
             for (int i = 0; i < BYTES_PER_WORD; i++)
                 rx_bytes[i] = rx.data[i*8 +: 8];
 
-            // Acumular solo los bytes válidos del paquete RX
             for (int i = 0; i < int'(rx.size); i++) begin
                 src_byte_idx = int'(rx.offset) + i;
                 if (src_byte_idx < BYTES_PER_WORD)
                     pending_bytes.push_back(rx_bytes[src_byte_idx]);
             end
 
-            // Generar TX mientras haya suficientes bytes
             while (pending_bytes.size() >= int'(cfg_size)) begin
                 tx_transaction tx = tx_transaction::type_id::create("tx");
                 tx.size   = cfg_size;
-                tx.offset = cfg_offset;   // el DUT siempre saca offset=0 en TX
+                tx.offset = cfg_offset;
                 tx.valid  = 1;
                 tx.err    = 0;
                 tx.data   = 32'h0;
-                // Colocar bytes en posición cfg_offset (siempre 0 en TX del DUT)
                 for (int i = 0; i < int'(cfg_size); i++)
                     tx.data[i*8 +: 8] = pending_bytes[i];
                 for (int i = 0; i < int'(cfg_size); i++)
@@ -114,6 +97,13 @@ package scoreboard_pkg;
         int actual_drop_count   = 0;
         int irq_count           = 0;
 
+        // =====================================================================
+        // [FIX-BUG-A] Flag armed: el scoreboard ignora TX del DUT hasta que
+        // el test llame arm() después de reset_counters().
+        // Esto evita que TX del pipeline previo contaminen la verificación.
+        // =====================================================================
+        bit armed = 0;
+
         function new(string name, uvm_component parent);
             super.new(name, parent);
             model = new();
@@ -126,15 +116,16 @@ package scoreboard_pkg;
             irq_export = new("irq_export", this);
         endfunction
 
-        // =====================================================================
-        // [FIX-BUG1] set_cfg delega a ref_model.set_config que ya limpia
-        // pending_bytes si la config cambia.
-        // =====================================================================
+        // Llamar después de reset_counters() para habilitar la verificación
+        function void arm();
+            armed = 1;
+            `uvm_info(get_type_name(), "Scoreboard ARMADO — verificación activa", UVM_LOW)
+        endfunction
+
         function void set_cfg(logic [1:0] off, logic [2:0] sz);
-            // Solo loguear si la config realmente cambió
             if (off !== model.cfg_offset || sz !== model.cfg_size) begin
                 `uvm_info(get_type_name(),
-                    $sformatf("Config actualizada: offset=%0d size=%0d (pending_bytes=%0d → flushed)",
+                    $sformatf("Config actualizada: offset=%0d size=%0d (pending_bytes=%0d flushed)",
                               off, sz, model.get_pending_count()), UVM_LOW)
             end
             model.set_config(off, sz);
@@ -142,6 +133,10 @@ package scoreboard_pkg;
 
         function void write_rx(rx_transaction tr);
             bit drop;
+
+            // [FIX-BUG-A] Si no está armado, ignorar silenciosamente
+            if (!armed) return;
+
             rx_packet_count++;
             drop = model.should_drop(tr);
 
@@ -181,19 +176,22 @@ package scoreboard_pkg;
         function void write_tx(tx_transaction tr);
             tx_transaction expected;
 
+            // [FIX-BUG-A] TX antes de arm() = pipeline residual del DUT, ignorar
+            if (!armed) begin
+                `uvm_info(get_type_name(),
+                    $sformatf("TX pre-arm ignorado: data=0x%08X size=%0d off=%0d",
+                              tr.data, tr.size, tr.offset), UVM_HIGH)
+                return;
+            end
+
             `uvm_info(get_type_name(),
                 $sformatf("[TX] data=0x%08X off=%0d size=%0d", tr.data, tr.offset, tr.size),
                 UVM_MEDIUM)
 
-            // =====================================================================
-            // [FIX-BUG1] Si la cola está vacía, puede ser que el DUT sacó un TX
-            // de datos que entraron antes del último cambio de CTRL (race).
-            // Los descartamos con un warning en lugar de error, porque el modelo
-            // ya no tiene esos bytes (los flusheó al cambiar cfg).
-            // =====================================================================
+            // TX inesperado — puede ser residual de un cambio de CTRL concurrente
             if (expected_tx_queue.size() == 0) begin
                 `uvm_warning(get_type_name(), $sformatf(
-                    "TX sin esperado en cola (probablemente de config anterior): data=0x%08X size=%0d — ignorado",
+                    "TX sin esperado en cola (residual de cambio CTRL): data=0x%08X size=%0d — ignorado",
                     tr.data, tr.size))
                 return;
             end
@@ -202,10 +200,8 @@ package scoreboard_pkg;
 
             if (tr.data !== expected.data) begin
                 `uvm_error(get_type_name(), $sformatf(
-                    "TX DATA MISMATCH:\n  Esperado: 0x%08X (size=%0d)\n  Recibido: 0x%08X (size=%0d)\n  rx_consumed=%0d tx_generated=%0d",
-                    expected.data, expected.size,
-                    tr.data, tr.size,
-                    model.rx_packets_consumed, model.tx_packets_generated))
+                    "TX DATA MISMATCH:\n  Esperado: 0x%08X (size=%0d)\n  Recibido: 0x%08X (size=%0d)",
+                    expected.data, expected.size, tr.data, tr.size))
                 error_count++;
                 tx_mismatch_count++;
             end else if (tr.size !== expected.size) begin
@@ -243,22 +239,32 @@ package scoreboard_pkg;
 
         function void check_phase(uvm_phase phase);
             // =====================================================================
-            // [FIX-BUG1] TX pendientes ya no son error duro: pueden ser TX que el
-            // DUT produjo con config anterior y el modelo los descartó al hacer
-            // flush. Solo son error si NO hubo ningún cambio de config durante el test.
+            // [FIX-BUG-B] TX pendientes al final:
+            // Si también hay pending_bytes > 0, significa que los legales que
+            // llegaron no completaron un word completo de cfg_size bytes.
+            // El DUT tampoco va a sacar ese TX incompleto → es normal, no error.
+            // Solo es error si expected_tx_queue tiene items Y pending_bytes==0
+            // (el modelo predijo TX que el DUT debió haber sacado pero no salieron).
             // =====================================================================
             if (expected_tx_queue.size() > 0) begin
-                `uvm_warning(get_type_name(), $sformatf(
-                    "TX PENDIENTES EN MODELO: %0d (pueden ser de config anterior si CTRL cambió durante el test)",
-                    expected_tx_queue.size()))
-                // Solo cuenta como error si no hubo race (modo MD_ONLY sin APB concurrente)
-                // En modo FULL es esperado que queden algunos por el race CTRL/MD
+                if (model.get_pending_count() > 0) begin
+                    // Bytes insuficientes para completar → normal en tests mezclados
+                    `uvm_warning(get_type_name(), $sformatf(
+                        "TX PENDIENTES: %0d (con %0d pending_bytes — word incompleto, normal en test mixto)",
+                        expected_tx_queue.size(), model.get_pending_count()))
+                end else begin
+                    // Sin bytes pendientes pero TX esperados → el DUT no sacó algo que debía
+                    `uvm_error(get_type_name(), $sformatf(
+                        "TX PERDIDOS: %0d TX esperados que el DUT nunca sacó (pending_bytes=0)",
+                        expected_tx_queue.size()))
+                    error_count++;
+                end
             end
 
-            if (model.get_pending_count() > 0) begin
-                `uvm_warning(get_type_name(), $sformatf(
-                    "BYTES PENDIENTES EN MODELO: %0d",
-                    model.get_pending_count()))
+            if (model.get_pending_count() > 0 && expected_tx_queue.size() == 0) begin
+                `uvm_info(get_type_name(), $sformatf(
+                    "BYTES RESIDUALES: %0d bytes sin completar un TX (normal)",
+                    model.get_pending_count()), UVM_LOW)
             end
 
             `uvm_info(get_type_name(), $sformatf(
@@ -280,6 +286,7 @@ package scoreboard_pkg;
         endfunction
 
         function void reset_counters();
+            armed = 0;   // desarmar — se rearma con arm() desde el test
             expected_tx_queue.delete();
             model.reset();
             expected_drop_count = 0;
