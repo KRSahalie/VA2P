@@ -99,12 +99,8 @@ interface aligner_if (input logic clk, input logic reset_n);
     ast_rx_hold: assert property (rx_hold_when_not_ready)
         else $error("[IF] RX data changed while ready=0");
 
-    property tx_offset_zero;
-        @(posedge clk) disable iff (!reset_n)
-        md_tx_valid |-> (md_tx_offset == 2'b00);
-    endproperty
-    ast_tx_offset: assert property (tx_offset_zero)
-        else $error("[IF] md_tx_offset != 0");
+    // NOTA: ast_tx_offset eliminada - md_tx_offset refleja CTRL.OFFSET según spec,
+    // no está obligado a ser siempre 0.
 
     property rx_size_not_zero;
         @(posedge clk) disable iff (!reset_n)
