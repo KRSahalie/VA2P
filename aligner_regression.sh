@@ -1,4 +1,4 @@
-    #!/bin/bash
+#!/bin/bash
 # ============================================================
 # Uso: ./run_aligner_regression.sh [NUM_TESTS]
 # ============================================================
@@ -201,7 +201,10 @@ for i in $(seq 1 $NUM_TESTS); do
         
         eval $CMD > $LOG_FILE 2>&1
         
-        if [ $? -eq 0 ] && grep -q "TEST PASADO" $LOG_FILE; then
+        HAS_PASSED=$(grep -c "TEST PASADO" $LOG_FILE)
+        HAS_ERROR=$(grep -cE "UVM_ERROR|TEST FALLIDO" $LOG_FILE)
+        
+        if [ "$HAS_PASSED" -gt 0 ] && [ "$HAS_ERROR" -eq 0 ]; then
             TEST_PASSED=1
         else
             RETRIES=$((RETRIES + 1))
@@ -220,8 +223,9 @@ for i in $(seq 1 $NUM_TESTS); do
     else
         echo "FAIL"
         FAILED=$((FAILED + 1))
-        # Guardar configuración fallida
-        echo "Test $i: SEMILLA=$SEMILLA TEST_MODE=$TEST_MODE APB_NUM_TRANS=$APB_NUM_TRANS MD_NUM_PKTS=$MD_NUM_PKTS MD_PATRON=$MD_PATRON" >> failed.txt
+        # Guardar configuración fallida con conteo de errores
+        ERROR_COUNT=$(grep -cE "UVM_ERROR" $LOG_FILE || echo "0")
+        echo "Test $i: SEMILLA=$SEMILLA TEST_MODE=$TEST_MODE APB_NUM_TRANS=$APB_NUM_TRANS MD_NUM_PKTS=$MD_NUM_PKTS MD_PATRON=$MD_PATRON ERRORS=$ERROR_COUNT" >> failed.txt
         # Mover log de fallo para análisis
         mv $LOG_FILE logs/failed_test_${i}.log
     fi
