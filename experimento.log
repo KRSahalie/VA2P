@@ -1,0 +1,239 @@
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version R-2020.12-SP2; Runtime version R-2020.12-SP2;  Jun  8 18:58 2026
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO tb_top.sv(133) @ 0: reporter [TB_TOP] All interfaces set in config_db
+UVM_INFO tb_top.sv(146) @ 0: reporter [TB_TOP] RAL model created and set in config_db
+UVM_INFO @ 0: reporter [RNTST] Running test test_general...
+UVM_INFO aligner_env.sv(74) @ 0: uvm_test_top.env [aligner_env] Environment connected
+UVM_INFO aligner_env.sv(78) @ 0: uvm_test_top.env [aligner_env] Simulation started
+-------------------------------------------------------------------------------------------
+Name                     Type                      Size  Value                             
+-------------------------------------------------------------------------------------------
+regmodel                 cfs_aligner_regs          -     @367                              
+  ctrl                   cfs_aligner_regs__ctrl    -     @370                              
+    size                 uvm_reg_field             ...    RW ctrl[2:0]=3'h1                
+    reserved0            uvm_reg_field             ...    RO ctrl[7:3]=5'h00               
+    offset               uvm_reg_field             ...    RW ctrl[9:8]=2'h0                
+    reserved1            uvm_reg_field             ...    RO ctrl[15:10]=6'h00             
+    clr                  uvm_reg_field             ...    WO ctrl[16:16]=1'h0              
+    reserved2            uvm_reg_field             ...    RO ctrl[31:17]=15'h0000          
+  status                 cfs_aligner_regs__status  -     @378                              
+    cnt_drop             uvm_reg_field             ...    RO status[7:0]=8'h00             
+    rx_lvl               uvm_reg_field             ...    RO status[11:8]=4'h0             
+    reserved0            uvm_reg_field             ...    RO status[15:12]=4'h0            
+    tx_lvl               uvm_reg_field             ...    RO status[19:16]=4'h0            
+    reserved1            uvm_reg_field             ...    RO status[31:20]=12'h000         
+  irqen                  cfs_aligner_regs__irqen   -     @385                              
+    rx_fifo_empty        uvm_reg_field             ...    RW irqen[0:0]=1'h1               
+    rx_fifo_full         uvm_reg_field             ...    RW irqen[1:1]=1'h1               
+    tx_fifo_empty        uvm_reg_field             ...    RW irqen[2:2]=1'h1               
+    tx_fifo_full         uvm_reg_field             ...    RW irqen[3:3]=1'h1               
+    max_drop             uvm_reg_field             ...    RW irqen[4:4]=1'h1               
+    reserved             uvm_reg_field             ...    RO irqen[31:5]=27'h0000000       
+  irq                    cfs_aligner_regs__irq     -     @393                              
+    rx_fifo_empty        uvm_reg_field             ...    W1C irq[0:0]=1'h0                
+    rx_fifo_full         uvm_reg_field             ...    W1C irq[1:1]=1'h0                
+    tx_fifo_empty        uvm_reg_field             ...    W1C irq[2:2]=1'h0                
+    tx_fifo_full         uvm_reg_field             ...    W1C irq[3:3]=1'h0                
+    max_drop             uvm_reg_field             ...    W1C irq[4:4]=1'h0                
+    reserved             uvm_reg_field             ...    RO irq[31:5]=27'h0000000         
+  reg_map                uvm_reg_map               -     @369                              
+    endian                                         ...   UVM_NO_ENDIAN                     
+    effective sequencer  apb_sequencer             ...   uvm_test_top.env.apb_agt.sequencer
+    ctrl                 cfs_aligner_regs__ctrl    ...   @370 +'h0                         
+    status               cfs_aligner_regs__status  ...   @378 +'hc                         
+    irqen                cfs_aligner_regs__irqen   ...   @385 +'hf0                        
+    irq                  cfs_aligner_regs__irq     ...   @393 +'hf4                        
+-------------------------------------------------------------------------------------------
+UVM_INFO test_general.sv(281) @ 0: uvm_test_top [test_general] 
+==================================================
+  TEST GENERAL CONFIGURATION
+==================================================
+  SEMILLA            = 1
+  TEST_MODE          = MD_ONLY
+  APB_NUM_TRANS      = 100
+  MD_NUM_PKTS        = 10
+  MD_PESO_LEGAL      = 80%
+  CTRL_SIZE          = 2
+  CTRL_OFFSET        = 2
+  MD_PATRON          = RANDOM
+  TIMEOUT_MS         = 100
+==================================================
+UVM_INFO tb_top.sv(116) @ 190000: reporter [TB_TOP] Reset deasserted
+UVM_INFO md_componentes.sv(31) @ 210000: uvm_test_top.env.rx_agt.driver [RX_DRV] Reset liberado
+UVM_INFO scoreboard.sv(132) @ 270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2
+UVM_INFO test_general.sv(128) @ 270000: uvm_test_top [test_general] CTRL configurado: size=2 offset=2
+UVM_INFO test_general.sv(143) @ 350000: uvm_test_top [test_general] IRQEN configurado (todas las interrupciones habilitadas)
+UVM_INFO test_general.sv(236) @ 350000: uvm_test_top [test_general] Iniciando MD: 8 legales, 2 ilegales, patrón=RANDOM
+UVM_INFO scoreboard.sv(142) @ 370000: uvm_test_top.env.sb [scoreboard] [RX] #1: data=0x27832451 off=3 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 390000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x27832451 offset=3 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 390000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=3 size=1 data=0x27832451
+UVM_INFO md_componentes.sv(227) @ 410000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 410000
+UVM_INFO scoreboard.sv(225) @ 410000: uvm_test_top.env.sb [scoreboard] [IRQ #1] @ 410000
+UVM_INFO scoreboard.sv(142) @ 430000: uvm_test_top.env.sb [scoreboard] [RX] #2: data=0x0bded8ad off=0 size=4 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 450000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x0bded8ad offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 450000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0x0bded8ad
+UVM_INFO md_componentes.sv(227) @ 470000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 470000
+UVM_INFO scoreboard.sv(225) @ 470000: uvm_test_top.env.sb [scoreboard] [IRQ #2] @ 470000
+UVM_INFO scoreboard.sv(142) @ 490000: uvm_test_top.env.sb [scoreboard] [RX] #3: data=0x5dfcdb6a off=0 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(178) @ 490000: uvm_test_top.env.sb [scoreboard] [TX] data=0xad270000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 490000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 490000ps failed at 490000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 490000 ps
+[IF] md_tx_offset != 0
+UVM_INFO scoreboard.sv(178) @ 510000: uvm_test_top.env.sb [scoreboard] [TX] data=0xded80000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 510000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+UVM_INFO md_componentes.sv(41) @ 510000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x5dfcdb6a offset=0 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 510000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0x5dfcdb6a
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 510000ps failed at 510000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 510000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 530000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 530000
+UVM_INFO scoreboard.sv(225) @ 530000: uvm_test_top.env.sb [scoreboard] [IRQ #3] @ 530000
+UVM_INFO scoreboard.sv(142) @ 550000: uvm_test_top.env.sb [scoreboard] [RX] #4: data=0xda824386 off=0 size=3 err=1 should_drop=1
+UVM_INFO scoreboard.sv(155) @ 550000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#4 off=0 size=3
+UVM_INFO scoreboard.sv(178) @ 550000: uvm_test_top.env.sb [scoreboard] [TX] data=0x6a0b0000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 550000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 550000ps failed at 550000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 550000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 570000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 570000
+UVM_INFO scoreboard.sv(225) @ 570000: uvm_test_top.env.sb [scoreboard] [IRQ #4] @ 570000
+UVM_INFO md_componentes.sv(41) @ 570000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xda824386 offset=0 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 570000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=0 size=3 data=0xda824386
+UVM_INFO scoreboard.sv(142) @ 610000: uvm_test_top.env.sb [scoreboard] [RX] #5: data=0xb30de424 off=0 size=3 err=1 should_drop=1
+UVM_INFO scoreboard.sv(155) @ 610000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#5 off=0 size=3
+UVM_INFO md_componentes.sv(41) @ 630000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xb30de424 offset=0 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 630000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=0 size=3 data=0xb30de424
+UVM_INFO scoreboard.sv(142) @ 670000: uvm_test_top.env.sb [scoreboard] [RX] #6: data=0x6b6ee9c0 off=3 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 690000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x6b6ee9c0 offset=3 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 690000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=3 size=1 data=0x6b6ee9c0
+UVM_INFO md_componentes.sv(227) @ 710000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 710000
+UVM_INFO scoreboard.sv(225) @ 710000: uvm_test_top.env.sb [scoreboard] [IRQ #5] @ 710000
+UVM_INFO scoreboard.sv(142) @ 730000: uvm_test_top.env.sb [scoreboard] [RX] #7: data=0xcb5db74e off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(178) @ 730000: uvm_test_top.env.sb [scoreboard] [TX] data=0x6bdb0000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 730000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 730000ps failed at 730000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 730000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 750000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 750000
+UVM_INFO scoreboard.sv(225) @ 750000: uvm_test_top.env.sb [scoreboard] [IRQ #6] @ 750000
+UVM_INFO md_componentes.sv(41) @ 750000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xcb5db74e offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 750000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xcb5db74e
+UVM_INFO scoreboard.sv(142) @ 790000: uvm_test_top.env.sb [scoreboard] [RX] #8: data=0x589f5270 off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(178) @ 790000: uvm_test_top.env.sb [scoreboard] [TX] data=0xb74e0000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 790000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 790000ps failed at 790000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 790000 ps
+[IF] md_tx_offset != 0
+UVM_INFO scoreboard.sv(178) @ 810000: uvm_test_top.env.sb [scoreboard] [TX] data=0xcb5d0000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 810000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+UVM_INFO md_componentes.sv(41) @ 810000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x589f5270 offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 810000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0x589f5270
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 810000ps failed at 810000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 810000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 830000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 830000
+UVM_INFO scoreboard.sv(225) @ 830000: uvm_test_top.env.sb [scoreboard] [IRQ #7] @ 830000
+UVM_INFO scoreboard.sv(142) @ 850000: uvm_test_top.env.sb [scoreboard] [RX] #9: data=0x70e4205b off=0 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 870000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x70e4205b offset=0 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 870000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0x70e4205b
+UVM_INFO md_componentes.sv(227) @ 890000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 890000
+UVM_INFO scoreboard.sv(225) @ 890000: uvm_test_top.env.sb [scoreboard] [IRQ #8] @ 890000
+UVM_INFO scoreboard.sv(142) @ 910000: uvm_test_top.env.sb [scoreboard] [RX] #10: data=0x5f7d6ee1 off=0 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(178) @ 910000: uvm_test_top.env.sb [scoreboard] [TX] data=0x5b520000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 910000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 910000ps failed at 910000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 910000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 930000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 930000
+UVM_INFO scoreboard.sv(225) @ 930000: uvm_test_top.env.sb [scoreboard] [IRQ #9] @ 930000
+UVM_INFO md_componentes.sv(41) @ 930000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0x5f7d6ee1 offset=0 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 930000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0x5f7d6ee1
+UVM_INFO scoreboard.sv(178) @ 970000: uvm_test_top.env.sb [scoreboard] [TX] data=0xe1200000 off=2 size=2
+UVM_ERROR scoreboard.sv(183) @ 970000: uvm_test_top.env.sb [scoreboard] TX OFFSET INCORRECTO: recibido=2 esperado=0 (debe ser siempre 0)
+"aligner_if.sv", 106: tb_top.vif.ast_tx_offset: started at 970000ps failed at 970000ps
+	Offending '(md_tx_offset == 2'b0)'
+Error: "aligner_if.sv", 106: tb_top.vif.ast_tx_offset: at time 970000 ps
+[IF] md_tx_offset != 0
+UVM_INFO md_componentes.sv(227) @ 990000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 990000
+UVM_INFO scoreboard.sv(225) @ 990000: uvm_test_top.env.sb [scoreboard] [IRQ #10] @ 990000
+UVM_WARNING test_general.sv(256) @ 100000931000: uvm_test_top [test_general] Timeout esperando TX finales: pending_bytes=1, expected_tx=8
+UVM_INFO test_general.sv(261) @ 100000931000: uvm_test_top [test_general] MD test completado
+UVM_INFO scoreboard.sv(237) @ 100003010000: uvm_test_top.env.sb [scoreboard] CNT_DROP OK: 2
+UVM_INFO test_general.sv(271) @ 100003010000: uvm_test_top [test_general] STATUS final: cnt_drop=2, rx_lvl=0, tx_lvl=0
+UVM_INFO scoreboard.sv(288) @ 100003010000: uvm_test_top.env.sb [scoreboard] MODEL STATUS: pending_bytes=1, tx_generated=8, rx_consumed=8
+UVM_INFO test_general.sv(326) @ 100003010000: uvm_test_top [test_general] === TEST PASADO ===
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 100003010000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_ERROR scoreboard.sv(244) @ 100003010000: uvm_test_top.env.sb [scoreboard] TX PENDIENTES EN MODELO: 8 TX esperados no se recibieron
+UVM_WARNING scoreboard.sv(251) @ 100003010000: uvm_test_top.env.sb [scoreboard] BYTES PENDIENTES EN MODELO: 1 (puede ser normal si el test terminó abruptamente)
+UVM_INFO scoreboard.sv(256) @ 100003010000: uvm_test_top.env.sb [scoreboard] 
+==========================================
+  RESUMEN SCOREBOARD
+==========================================
+  RX packets recibidos:   10
+  Drops esperados:        2
+  Drops reales (CNT_DROP):2
+  TX generados (modelo):  8
+  TX recibidos:           0
+  TX correctos:           0
+  TX incorrectos:         0
+  IRQs recibidas:         10
+  Errores totales:        9
+==========================================
+UVM_ERROR scoreboard.sv(269) @ 100003010000: uvm_test_top.env.sb [scoreboard] TEST FALLIDO
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(901) @ 100003010000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   80
+UVM_WARNING :    2
+UVM_ERROR :   10
+UVM_FATAL :    0
+** Report counts by id
+[IRQ_MON]    10
+[RNTST]     1
+[RX_DRV]    11
+[TB_TOP]     3
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[aligner_env]     2
+[rx_mixed_seq]    10
+[scoreboard]    45
+[test_general]     8
+
+$finish called from file "/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time         100003010000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 100003010000 ps
+CPU Time:      7.560 seconds;       Data structure size:   0.2Mb
+Mon Jun  8 18:58:11 2026
