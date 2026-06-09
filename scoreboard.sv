@@ -52,7 +52,7 @@ package scoreboard_pkg;
                 tx.err    = 0;
                 tx.data   = 32'h0;
                 for (int i = 0; i < int'(cfg_size); i++)
-                    tx.data[i*8 +: 8] = pending_bytes[i];
+                    tx.data[(cfg_offset + i)*8 +: 8] = pending_bytes[i];
                 for (int i = 0; i < int'(cfg_size); i++)
                     pending_bytes.pop_front();
                 tx_queue.push_back(tx);
