@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12-SP2; Runtime version R-2020.12-SP2;  Jun  8 22:36 2026
+Compiler version R-2020.12-SP2; Runtime version R-2020.12-SP2;  Jun  8 23:12 2026
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -67,142 +67,851 @@ regmodel                 cfs_aligner_regs          -     @367
     irqen                cfs_aligner_regs__irqen   ...   @385 +'hf0                        
     irq                  cfs_aligner_regs__irq     ...   @393 +'hf4                        
 -------------------------------------------------------------------------------------------
-UVM_INFO test_general.sv(287) @ 0: uvm_test_top [test_general] 
+UVM_INFO test_general.sv(316) @ 0: uvm_test_top [test_general] 
 ==================================================
   TEST GENERAL CONFIGURATION
 ==================================================
-  SEMILLA            = 380971293
-  TEST_MODE          = APB_ONLY
-  APB_NUM_TRANS      = 263
-  MD_NUM_PKTS        = 175
-  MD_PESO_LEGAL      = 0%
+  SEMILLA            = 49180134
+  TEST_MODE          = FULL
+  APB_NUM_TRANS      = 211
+  MD_NUM_PKTS        = 86
+  MD_PESO_LEGAL      = 91%
   CTRL_SIZE          = 1
   CTRL_OFFSET        = 0
   MD_PATRON          = ONES
-  TIMEOUT_MS         = 203
+  TIMEOUT_MS         = 430
 ==================================================
 UVM_INFO tb_top.sv(116) @ 190000: reporter [TB_TOP] Reset deasserted
 UVM_INFO md_componentes.sv(31) @ 210000: uvm_test_top.env.rx_agt.driver [RX_DRV] Reset liberado
-UVM_INFO scoreboard.sv(136) @ 270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO test_general.sv(120) @ 270000: uvm_test_top [test_general] CTRL configurado: size=1 offset=0
-UVM_INFO test_general.sv(133) @ 350000: uvm_test_top [test_general] IRQEN configurado (todas las interrupciones habilitadas)
-UVM_INFO test_general.sv(145) @ 350000: uvm_test_top [test_general] Iniciando 263 transacciones APB
-UVM_INFO scoreboard.sv(136) @ 430000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 510000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 910000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 1310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 1630000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 1710000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 2690000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 3010000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 3110000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 3190000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 3290000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 3610000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 3950000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 4270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 4350000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 5490000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 5830000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 6390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 6470000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 6570000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 7050000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 7370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 7470000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 7550000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 7630000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 7790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 7870000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 8670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 9010000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 9510000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 9590000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 9670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 9830000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 10070000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 10170000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 10990000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 11250000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 11330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 11410000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 11730000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 12230000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 12390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 13430000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 13590000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 13750000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 14010000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 14330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 14990000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 15250000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 15890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 15990000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 16310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 16790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 16870000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 17190000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 17350000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 17670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 17910000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 18230000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 18550000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 18710000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 18870000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO scoreboard.sv(136) @ 18950000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 19050000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 19150000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 19570000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 19730000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 19830000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 20950000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 21130000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 21290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 → flushed)
-UVM_WARNING apb_componentes.sv(142) @ 21550000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(136) @ 21790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 → flushed)
-UVM_INFO test_general.sv(217) @ 21877000: uvm_test_top [test_general] APB test completado: escrituras exitosas=56, ilegales=24
-UVM_INFO scoreboard.sv(239) @ 24450000: uvm_test_top.env.sb [scoreboard] CNT_DROP OK: 0
-UVM_INFO test_general.sv(277) @ 24450000: uvm_test_top [test_general] STATUS final: cnt_drop=0, rx_lvl=0, tx_lvl=0
-UVM_INFO scoreboard.sv(295) @ 24450000: uvm_test_top.env.sb [scoreboard] MODEL STATUS: pending_bytes=0, tx_generated=0, rx_consumed=0
-UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 24450000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO scoreboard.sv(264) @ 24450000: uvm_test_top.env.sb [scoreboard] 
+UVM_INFO scoreboard.sv(127) @ 270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO test_general.sv(118) @ 270000: uvm_test_top [test_general] CTRL configurado: size=1 offset=0
+UVM_INFO test_general.sv(131) @ 350000: uvm_test_top [test_general] IRQEN configurado (todas las interrupciones habilitadas)
+UVM_INFO test_general.sv(144) @ 350000: uvm_test_top [test_general] Drenando pipeline del DUT...
+UVM_INFO test_general.sv(154) @ 430000: uvm_test_top [test_general] Pipeline drenado OK
+UVM_INFO scoreboard.sv(122) @ 430000: uvm_test_top.env.sb [scoreboard] Scoreboard ARMADO — verificación activa
+UVM_INFO test_general.sv(166) @ 430000: uvm_test_top [test_general] Iniciando 211 transacciones APB
+UVM_WARNING apb_componentes.sv(142) @ 690000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 770000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO test_general.sv(251) @ 930000: uvm_test_top [test_general] Iniciando MD: 78 legales, 8 ilegales, patrón=ONES
+UVM_INFO scoreboard.sv(143) @ 950000: uvm_test_top.env.sb [scoreboard] [RX] #1: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 970000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 970000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 990000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 990000
+UVM_INFO scoreboard.sv(223) @ 990000: uvm_test_top.env.sb [scoreboard] [IRQ #1] @ 990000
+UVM_INFO scoreboard.sv(143) @ 1010000: uvm_test_top.env.sb [scoreboard] [RX] #2: data=0xffffffff off=2 size=4 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 1010000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#2 off=2 size=4
+UVM_INFO md_componentes.sv(41) @ 1030000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 1030000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=2 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1070000: uvm_test_top.env.sb [scoreboard] [RX] #3: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(127) @ 1090000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_INFO md_componentes.sv(41) @ 1090000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 1090000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 1110000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1110000
+UVM_INFO scoreboard.sv(223) @ 1110000: uvm_test_top.env.sb [scoreboard] [IRQ #2] @ 1110000
+UVM_INFO scoreboard.sv(143) @ 1130000: uvm_test_top.env.sb [scoreboard] [RX] #4: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1130000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ffff00 off=0 size=2
+UVM_ERROR scoreboard.sv(202) @ 1130000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x00ffff00 (size=2)
+UVM_INFO md_componentes.sv(227) @ 1150000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1150000
+UVM_INFO scoreboard.sv(223) @ 1150000: uvm_test_top.env.sb [scoreboard] [IRQ #3] @ 1150000
+UVM_INFO md_componentes.sv(41) @ 1150000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1150000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1190000: uvm_test_top.env.sb [scoreboard] [RX] #5: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 1210000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 1210000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 1230000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1230000
+UVM_INFO scoreboard.sv(223) @ 1230000: uvm_test_top.env.sb [scoreboard] [IRQ #4] @ 1230000
+UVM_INFO scoreboard.sv(143) @ 1250000: uvm_test_top.env.sb [scoreboard] [RX] #6: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1250000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1250000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1270000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1270000
+UVM_INFO scoreboard.sv(223) @ 1270000: uvm_test_top.env.sb [scoreboard] [IRQ #5] @ 1270000
+UVM_INFO md_componentes.sv(41) @ 1270000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1270000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1310000: uvm_test_top.env.sb [scoreboard] [RX] #7: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1310000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1310000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1330000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1330000
+UVM_INFO scoreboard.sv(223) @ 1330000: uvm_test_top.env.sb [scoreboard] [IRQ #6] @ 1330000
+UVM_INFO md_componentes.sv(41) @ 1330000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1330000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1370000: uvm_test_top.env.sb [scoreboard] [RX] #8: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1370000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ff00 off=0 size=2
+UVM_ERROR scoreboard.sv(202) @ 1370000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x0000ff00 (size=2)
+UVM_INFO md_componentes.sv(227) @ 1390000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1390000
+UVM_INFO scoreboard.sv(223) @ 1390000: uvm_test_top.env.sb [scoreboard] [IRQ #7] @ 1390000
+UVM_INFO md_componentes.sv(41) @ 1390000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1390000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1430000: uvm_test_top.env.sb [scoreboard] [RX] #9: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 1450000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 1450000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1490000: uvm_test_top.env.sb [scoreboard] [RX] #10: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1490000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1490000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1510000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1510000
+UVM_INFO scoreboard.sv(223) @ 1510000: uvm_test_top.env.sb [scoreboard] [IRQ #8] @ 1510000
+UVM_INFO md_componentes.sv(41) @ 1510000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1510000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1550000: uvm_test_top.env.sb [scoreboard] [RX] #11: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 1570000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1570000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1610000: uvm_test_top.env.sb [scoreboard] [RX] #12: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1610000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1610000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1630000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1630000
+UVM_INFO scoreboard.sv(223) @ 1630000: uvm_test_top.env.sb [scoreboard] [IRQ #9] @ 1630000
+UVM_INFO md_componentes.sv(41) @ 1630000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1630000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1670000: uvm_test_top.env.sb [scoreboard] [RX] #13: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1670000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1670000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO scoreboard.sv(187) @ 1690000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1690000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(41) @ 1690000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 1690000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 1710000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1710000
+UVM_INFO scoreboard.sv(223) @ 1710000: uvm_test_top.env.sb [scoreboard] [IRQ #10] @ 1710000
+UVM_INFO scoreboard.sv(143) @ 1730000: uvm_test_top.env.sb [scoreboard] [RX] #14: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 1750000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1750000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 1770000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1770000
+UVM_INFO scoreboard.sv(223) @ 1770000: uvm_test_top.env.sb [scoreboard] [IRQ #11] @ 1770000
+UVM_INFO scoreboard.sv(143) @ 1790000: uvm_test_top.env.sb [scoreboard] [RX] #15: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1790000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1790000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1810000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1810000
+UVM_INFO scoreboard.sv(223) @ 1810000: uvm_test_top.env.sb [scoreboard] [IRQ #12] @ 1810000
+UVM_INFO md_componentes.sv(41) @ 1810000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1810000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(41) @ 1850000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=3 valid=0 err=0
+UVM_INFO md_sequences.sv(144) @ 1850000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=1 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 1890000: uvm_test_top.env.sb [scoreboard] [RX] #16: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 1910000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1910000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 1930000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1930000
+UVM_INFO scoreboard.sv(223) @ 1930000: uvm_test_top.env.sb [scoreboard] [IRQ #13] @ 1930000
+UVM_INFO scoreboard.sv(143) @ 1950000: uvm_test_top.env.sb [scoreboard] [RX] #17: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 1950000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 1950000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 1970000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 1970000
+UVM_INFO scoreboard.sv(223) @ 1970000: uvm_test_top.env.sb [scoreboard] [IRQ #14] @ 1970000
+UVM_INFO md_componentes.sv(41) @ 1970000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 1970000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2010000: uvm_test_top.env.sb [scoreboard] [RX] #18: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2010000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 2010000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO md_componentes.sv(227) @ 2030000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2030000
+UVM_INFO scoreboard.sv(223) @ 2030000: uvm_test_top.env.sb [scoreboard] [IRQ #15] @ 2030000
+UVM_INFO md_componentes.sv(41) @ 2030000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2030000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2070000: uvm_test_top.env.sb [scoreboard] [RX] #19: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2070000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ff00 off=0 size=2
+UVM_ERROR scoreboard.sv(202) @ 2070000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x0000ff00 (size=2)
+UVM_INFO md_componentes.sv(227) @ 2090000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2090000
+UVM_INFO scoreboard.sv(223) @ 2090000: uvm_test_top.env.sb [scoreboard] [IRQ #16] @ 2090000
+UVM_INFO md_componentes.sv(41) @ 2090000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2090000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2130000: uvm_test_top.env.sb [scoreboard] [RX] #20: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2130000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 2130000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO scoreboard.sv(187) @ 2150000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=2
+UVM_ERROR scoreboard.sv(202) @ 2150000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x000000ff (size=2)
+UVM_INFO md_componentes.sv(41) @ 2150000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2150000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2170000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2170000
+UVM_INFO scoreboard.sv(223) @ 2170000: uvm_test_top.env.sb [scoreboard] [IRQ #17] @ 2170000
+UVM_INFO scoreboard.sv(143) @ 2190000: uvm_test_top.env.sb [scoreboard] [RX] #21: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2190000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_INFO scoreboard.sv(214) @ 2190000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x0000ffff size=2
+UVM_INFO scoreboard.sv(127) @ 2210000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=1 flushed)
+UVM_INFO scoreboard.sv(187) @ 2210000: uvm_test_top.env.sb [scoreboard] [TX] data=0x0000ffff off=0 size=2
+UVM_WARNING scoreboard.sv(193) @ 2210000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0x0000ffff size=2 — ignorado
+UVM_INFO md_componentes.sv(41) @ 2210000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2210000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2230000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2230000
+UVM_INFO scoreboard.sv(223) @ 2230000: uvm_test_top.env.sb [scoreboard] [IRQ #18] @ 2230000
+UVM_INFO scoreboard.sv(143) @ 2250000: uvm_test_top.env.sb [scoreboard] [RX] #22: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2250000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2250000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO md_componentes.sv(227) @ 2270000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2270000
+UVM_INFO scoreboard.sv(223) @ 2270000: uvm_test_top.env.sb [scoreboard] [IRQ #19] @ 2270000
+UVM_INFO md_componentes.sv(41) @ 2270000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2270000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2310000: uvm_test_top.env.sb [scoreboard] [RX] #23: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2310000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2310000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO scoreboard.sv(187) @ 2330000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2330000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO md_componentes.sv(41) @ 2330000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2330000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2350000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2350000
+UVM_INFO scoreboard.sv(223) @ 2350000: uvm_test_top.env.sb [scoreboard] [IRQ #20] @ 2350000
+UVM_INFO scoreboard.sv(143) @ 2370000: uvm_test_top.env.sb [scoreboard] [RX] #24: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2370000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2370000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO scoreboard.sv(187) @ 2390000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_WARNING scoreboard.sv(193) @ 2390000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xffff0000 size=2 — ignorado
+UVM_INFO md_componentes.sv(41) @ 2390000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2390000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2410000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2410000
+UVM_INFO scoreboard.sv(223) @ 2410000: uvm_test_top.env.sb [scoreboard] [IRQ #21] @ 2410000
+UVM_INFO scoreboard.sv(143) @ 2430000: uvm_test_top.env.sb [scoreboard] [RX] #25: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 2450000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2450000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2470000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2470000
+UVM_INFO scoreboard.sv(223) @ 2470000: uvm_test_top.env.sb [scoreboard] [IRQ #22] @ 2470000
+UVM_INFO scoreboard.sv(143) @ 2490000: uvm_test_top.env.sb [scoreboard] [RX] #26: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2490000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2490000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO md_componentes.sv(227) @ 2510000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2510000
+UVM_INFO scoreboard.sv(223) @ 2510000: uvm_test_top.env.sb [scoreboard] [IRQ #23] @ 2510000
+UVM_INFO md_componentes.sv(41) @ 2510000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2510000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 2530000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=1 flushed)
+UVM_INFO scoreboard.sv(143) @ 2550000: uvm_test_top.env.sb [scoreboard] [RX] #27: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2550000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 2550000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO scoreboard.sv(187) @ 2570000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 2570000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 2570000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2570000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2590000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2590000
+UVM_INFO scoreboard.sv(223) @ 2590000: uvm_test_top.env.sb [scoreboard] [IRQ #24] @ 2590000
+UVM_INFO scoreboard.sv(187) @ 2590000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 2590000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO scoreboard.sv(143) @ 2610000: uvm_test_top.env.sb [scoreboard] [RX] #28: data=0xffffffff off=1 size=2 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 2610000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#28 off=1 size=2
+UVM_INFO scoreboard.sv(187) @ 2610000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_WARNING scoreboard.sv(193) @ 2610000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xff000000 size=1 — ignorado
+UVM_INFO scoreboard.sv(187) @ 2630000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_WARNING scoreboard.sv(193) @ 2630000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xff000000 size=1 — ignorado
+UVM_INFO md_componentes.sv(41) @ 2630000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(144) @ 2630000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=1 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 2650000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=3 size=1
+UVM_WARNING scoreboard.sv(193) @ 2650000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0x00000000 size=1 — ignorado
+UVM_INFO md_componentes.sv(227) @ 2670000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2670000
+UVM_INFO scoreboard.sv(223) @ 2670000: uvm_test_top.env.sb [scoreboard] [IRQ #25] @ 2670000
+UVM_INFO scoreboard.sv(143) @ 2670000: uvm_test_top.env.sb [scoreboard] [RX] #29: data=0xffffffff off=1 size=2 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 2670000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#29 off=1 size=2
+UVM_INFO scoreboard.sv(127) @ 2690000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO md_componentes.sv(41) @ 2690000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 2690000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=1 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2730000: uvm_test_top.env.sb [scoreboard] [RX] #30: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 2750000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2750000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2770000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2770000
+UVM_INFO scoreboard.sv(223) @ 2770000: uvm_test_top.env.sb [scoreboard] [IRQ #26] @ 2770000
+UVM_INFO scoreboard.sv(143) @ 2790000: uvm_test_top.env.sb [scoreboard] [RX] #31: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2790000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2790000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 2810000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2810000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 2810000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2810000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 2830000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2830000
+UVM_INFO scoreboard.sv(223) @ 2830000: uvm_test_top.env.sb [scoreboard] [IRQ #27] @ 2830000
+UVM_INFO scoreboard.sv(187) @ 2830000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2830000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO scoreboard.sv(143) @ 2850000: uvm_test_top.env.sb [scoreboard] [RX] #32: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2850000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2850000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 2870000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2870000
+UVM_INFO scoreboard.sv(223) @ 2870000: uvm_test_top.env.sb [scoreboard] [IRQ #28] @ 2870000
+UVM_INFO md_componentes.sv(41) @ 2870000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 2870000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 2910000: uvm_test_top.env.sb [scoreboard] [RX] #33: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2910000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2910000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 2930000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2930000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 2930000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2930000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 2950000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2950000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 2970000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 2970000
+UVM_INFO scoreboard.sv(223) @ 2970000: uvm_test_top.env.sb [scoreboard] [IRQ #29] @ 2970000
+UVM_INFO scoreboard.sv(143) @ 2970000: uvm_test_top.env.sb [scoreboard] [RX] #34: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 2970000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2970000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 2990000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 2990000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 2990000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 2990000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 3010000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3010000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(143) @ 3030000: uvm_test_top.env.sb [scoreboard] [RX] #35: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3030000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3030000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3050000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3050000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 3050000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3050000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 3070000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3070000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(127) @ 3090000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(143) @ 3090000: uvm_test_top.env.sb [scoreboard] [RX] #36: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3090000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3090000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3110000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3110000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 3110000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3110000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 3130000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3130000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO scoreboard.sv(143) @ 3150000: uvm_test_top.env.sb [scoreboard] [RX] #37: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3150000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3150000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3170000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3170000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 3170000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 3170000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3190000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3190000
+UVM_INFO scoreboard.sv(223) @ 3190000: uvm_test_top.env.sb [scoreboard] [IRQ #30] @ 3190000
+UVM_INFO scoreboard.sv(187) @ 3190000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_WARNING scoreboard.sv(193) @ 3190000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xff000000 size=1 — ignorado
+UVM_INFO scoreboard.sv(143) @ 3210000: uvm_test_top.env.sb [scoreboard] [RX] #38: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3210000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3210000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3230000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3230000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 3230000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3230000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 3250000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO md_componentes.sv(227) @ 3250000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3250000
+UVM_INFO scoreboard.sv(223) @ 3250000: uvm_test_top.env.sb [scoreboard] [IRQ #31] @ 3250000
+UVM_INFO scoreboard.sv(143) @ 3270000: uvm_test_top.env.sb [scoreboard] [RX] #39: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3270000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 3270000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3290000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 3290000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x00ff0000 (size=2)
+UVM_INFO md_componentes.sv(41) @ 3290000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 3290000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3310000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3310000
+UVM_INFO scoreboard.sv(223) @ 3310000: uvm_test_top.env.sb [scoreboard] [IRQ #32] @ 3310000
+UVM_INFO scoreboard.sv(143) @ 3330000: uvm_test_top.env.sb [scoreboard] [RX] #40: data=0xffffffff off=1 size=2 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 3330000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#40 off=1 size=2
+UVM_INFO scoreboard.sv(187) @ 3330000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_WARNING scoreboard.sv(193) @ 3330000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xffff0000 size=2 — ignorado
+UVM_INFO scoreboard.sv(187) @ 3350000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_WARNING scoreboard.sv(193) @ 3350000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xffff0000 size=2 — ignorado
+UVM_INFO md_componentes.sv(41) @ 3350000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 3350000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=1 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3370000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3370000
+UVM_INFO scoreboard.sv(223) @ 3370000: uvm_test_top.env.sb [scoreboard] [IRQ #33] @ 3370000
+UVM_INFO scoreboard.sv(143) @ 3390000: uvm_test_top.env.sb [scoreboard] [RX] #41: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 3410000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3410000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3430000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3430000
+UVM_INFO scoreboard.sv(223) @ 3430000: uvm_test_top.env.sb [scoreboard] [IRQ #34] @ 3430000
+UVM_INFO scoreboard.sv(143) @ 3450000: uvm_test_top.env.sb [scoreboard] [RX] #42: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 3470000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3470000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3490000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3490000
+UVM_INFO scoreboard.sv(223) @ 3490000: uvm_test_top.env.sb [scoreboard] [IRQ #35] @ 3490000
+UVM_INFO scoreboard.sv(143) @ 3510000: uvm_test_top.env.sb [scoreboard] [RX] #43: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3510000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 3510000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO scoreboard.sv(187) @ 3530000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 3530000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x00ff0000 (size=2)
+UVM_INFO md_componentes.sv(41) @ 3530000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3530000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3550000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3550000
+UVM_INFO scoreboard.sv(223) @ 3550000: uvm_test_top.env.sb [scoreboard] [IRQ #36] @ 3550000
+UVM_INFO scoreboard.sv(143) @ 3570000: uvm_test_top.env.sb [scoreboard] [RX] #44: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 3590000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3590000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3610000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3610000
+UVM_INFO scoreboard.sv(223) @ 3610000: uvm_test_top.env.sb [scoreboard] [IRQ #37] @ 3610000
+UVM_INFO scoreboard.sv(143) @ 3630000: uvm_test_top.env.sb [scoreboard] [RX] #45: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3630000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 3630000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO scoreboard.sv(127) @ 3650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(187) @ 3650000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=2
+UVM_ERROR scoreboard.sv(202) @ 3650000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0xffff0000 (size=2)
+UVM_INFO md_componentes.sv(41) @ 3650000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3650000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3670000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3670000
+UVM_INFO scoreboard.sv(223) @ 3670000: uvm_test_top.env.sb [scoreboard] [IRQ #38] @ 3670000
+UVM_INFO scoreboard.sv(143) @ 3690000: uvm_test_top.env.sb [scoreboard] [RX] #46: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3690000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3690000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x0000ffff (size=2)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3710000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3710000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 3710000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3710000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 3730000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_WARNING scoreboard.sv(193) @ 3730000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0x00ff0000 size=1 — ignorado
+UVM_WARNING apb_componentes.sv(142) @ 3750000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO md_componentes.sv(227) @ 3750000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3750000
+UVM_INFO scoreboard.sv(223) @ 3750000: uvm_test_top.env.sb [scoreboard] [IRQ #39] @ 3750000
+UVM_INFO scoreboard.sv(143) @ 3750000: uvm_test_top.env.sb [scoreboard] [RX] #47: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3750000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3750000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 3770000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_WARNING scoreboard.sv(193) @ 3770000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0x00ff0000 size=1 — ignorado
+UVM_INFO md_componentes.sv(41) @ 3770000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 3770000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 3790000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3790000
+UVM_INFO scoreboard.sv(223) @ 3790000: uvm_test_top.env.sb [scoreboard] [IRQ #40] @ 3790000
+UVM_INFO scoreboard.sv(143) @ 3810000: uvm_test_top.env.sb [scoreboard] [RX] #48: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3810000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3810000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 3830000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3830000
+UVM_INFO scoreboard.sv(223) @ 3830000: uvm_test_top.env.sb [scoreboard] [IRQ #41] @ 3830000
+UVM_INFO md_componentes.sv(41) @ 3830000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 3830000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 3870000: uvm_test_top.env.sb [scoreboard] [RX] #49: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3870000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3870000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 3890000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3890000
+UVM_INFO scoreboard.sv(223) @ 3890000: uvm_test_top.env.sb [scoreboard] [IRQ #42] @ 3890000
+UVM_INFO md_componentes.sv(41) @ 3890000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 3890000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 3910000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(143) @ 3930000: uvm_test_top.env.sb [scoreboard] [RX] #50: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3930000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=1
+UVM_ERROR scoreboard.sv(202) @ 3930000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00ff0000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 3950000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 3950000
+UVM_INFO scoreboard.sv(223) @ 3950000: uvm_test_top.env.sb [scoreboard] [IRQ #43] @ 3950000
+UVM_INFO md_componentes.sv(41) @ 3950000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 3950000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 3990000: uvm_test_top.env.sb [scoreboard] [RX] #51: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 3990000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00ff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 3990000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0x00ff0000 (size=3)
+UVM_INFO md_componentes.sv(227) @ 4010000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4010000
+UVM_INFO scoreboard.sv(223) @ 4010000: uvm_test_top.env.sb [scoreboard] [IRQ #44] @ 4010000
+UVM_INFO md_componentes.sv(41) @ 4010000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4010000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4050000: uvm_test_top.env.sb [scoreboard] [RX] #52: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4050000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 4050000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO md_componentes.sv(227) @ 4070000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4070000
+UVM_INFO scoreboard.sv(223) @ 4070000: uvm_test_top.env.sb [scoreboard] [IRQ #45] @ 4070000
+UVM_INFO md_componentes.sv(41) @ 4070000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4070000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4110000: uvm_test_top.env.sb [scoreboard] [RX] #53: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4110000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_WARNING scoreboard.sv(193) @ 4110000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0xffff0000 size=3 — ignorado
+UVM_INFO md_componentes.sv(227) @ 4130000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4130000
+UVM_INFO scoreboard.sv(223) @ 4130000: uvm_test_top.env.sb [scoreboard] [IRQ #46] @ 4130000
+UVM_INFO md_componentes.sv(41) @ 4130000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4130000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4170000: uvm_test_top.env.sb [scoreboard] [RX] #54: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 4190000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4190000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 4210000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4210000
+UVM_INFO scoreboard.sv(223) @ 4210000: uvm_test_top.env.sb [scoreboard] [IRQ #47] @ 4210000
+UVM_INFO scoreboard.sv(143) @ 4230000: uvm_test_top.env.sb [scoreboard] [RX] #55: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4230000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 4230000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO scoreboard.sv(187) @ 4250000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 4250000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO md_componentes.sv(41) @ 4250000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4250000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 4270000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4270000
+UVM_INFO scoreboard.sv(223) @ 4270000: uvm_test_top.env.sb [scoreboard] [IRQ #48] @ 4270000
+UVM_INFO scoreboard.sv(143) @ 4290000: uvm_test_top.env.sb [scoreboard] [RX] #56: data=0xffffffff off=0 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(127) @ 4310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO md_componentes.sv(41) @ 4310000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4310000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4350000: uvm_test_top.env.sb [scoreboard] [RX] #57: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 4370000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4370000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 4390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=1 flushed)
+UVM_INFO scoreboard.sv(143) @ 4410000: uvm_test_top.env.sb [scoreboard] [RX] #58: data=0xffffffff off=0 size=3 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 4410000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#58 off=0 size=3
+UVM_INFO scoreboard.sv(187) @ 4410000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffffff00 off=0 size=4
+UVM_ERROR scoreboard.sv(202) @ 4410000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffffff00 (size=4)
+UVM_INFO md_componentes.sv(227) @ 4430000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4430000
+UVM_INFO scoreboard.sv(223) @ 4430000: uvm_test_top.env.sb [scoreboard] [IRQ #49] @ 4430000
+UVM_INFO md_componentes.sv(41) @ 4430000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(144) @ 4430000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=0 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4470000: uvm_test_top.env.sb [scoreboard] [RX] #59: data=0xffffffff off=0 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 4490000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4490000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4530000: uvm_test_top.env.sb [scoreboard] [RX] #60: data=0xffffffff off=0 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4530000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4530000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO scoreboard.sv(187) @ 4550000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4550000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(41) @ 4550000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4550000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 4570000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4570000
+UVM_INFO scoreboard.sv(223) @ 4570000: uvm_test_top.env.sb [scoreboard] [IRQ #50] @ 4570000
+UVM_INFO scoreboard.sv(143) @ 4590000: uvm_test_top.env.sb [scoreboard] [RX] #61: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4590000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4590000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO scoreboard.sv(187) @ 4610000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4610000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(41) @ 4610000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4610000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 4630000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4630000
+UVM_INFO scoreboard.sv(223) @ 4630000: uvm_test_top.env.sb [scoreboard] [IRQ #51] @ 4630000
+UVM_INFO scoreboard.sv(143) @ 4650000: uvm_test_top.env.sb [scoreboard] [RX] #62: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4650000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4650000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(227) @ 4670000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4670000
+UVM_INFO scoreboard.sv(223) @ 4670000: uvm_test_top.env.sb [scoreboard] [IRQ #52] @ 4670000
+UVM_INFO md_componentes.sv(41) @ 4670000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4670000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4710000: uvm_test_top.env.sb [scoreboard] [RX] #63: data=0xffffffff off=3 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4710000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4710000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(227) @ 4730000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4730000
+UVM_INFO scoreboard.sv(223) @ 4730000: uvm_test_top.env.sb [scoreboard] [IRQ #53] @ 4730000
+UVM_INFO md_componentes.sv(41) @ 4730000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=3 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4730000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=3 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4770000: uvm_test_top.env.sb [scoreboard] [RX] #64: data=0xffffffff off=2 size=3 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4770000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4770000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(227) @ 4790000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4790000
+UVM_INFO scoreboard.sv(223) @ 4790000: uvm_test_top.env.sb [scoreboard] [IRQ #54] @ 4790000
+UVM_INFO md_componentes.sv(41) @ 4790000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=3 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 4790000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=3 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 4830000: uvm_test_top.env.sb [scoreboard] [RX] #65: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4830000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4830000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO scoreboard.sv(187) @ 4850000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4850000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(41) @ 4850000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4850000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(187) @ 4870000: uvm_test_top.env.sb [scoreboard] [TX] data=0x00000000 off=0 size=1
+UVM_ERROR scoreboard.sv(202) @ 4870000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0x00000000 (size=1)
+UVM_INFO scoreboard.sv(143) @ 4890000: uvm_test_top.env.sb [scoreboard] [RX] #66: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4890000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_INFO scoreboard.sv(214) @ 4890000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0x000000ff size=1
+UVM_INFO md_componentes.sv(227) @ 4910000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4910000
+UVM_INFO scoreboard.sv(223) @ 4910000: uvm_test_top.env.sb [scoreboard] [IRQ #55] @ 4910000
+UVM_INFO md_componentes.sv(41) @ 4910000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4910000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 4950000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(143) @ 4950000: uvm_test_top.env.sb [scoreboard] [RX] #67: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 4950000: uvm_test_top.env.sb [scoreboard] [TX] data=0x000000ff off=0 size=1
+UVM_WARNING scoreboard.sv(193) @ 4950000: uvm_test_top.env.sb [scoreboard] TX sin esperado en cola (residual de cambio CTRL): data=0x000000ff size=1 — ignorado
+UVM_INFO md_componentes.sv(227) @ 4970000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 4970000
+UVM_INFO scoreboard.sv(223) @ 4970000: uvm_test_top.env.sb [scoreboard] [IRQ #56] @ 4970000
+UVM_INFO md_componentes.sv(41) @ 4970000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 4970000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5010000: uvm_test_top.env.sb [scoreboard] [RX] #68: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5030000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5030000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5070000: uvm_test_top.env.sb [scoreboard] [RX] #69: data=0xffffffff off=1 size=4 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 5070000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#69 off=1 size=4
+UVM_INFO scoreboard.sv(187) @ 5070000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffffffff off=0 size=4
+UVM_INFO scoreboard.sv(214) @ 5070000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0xffffffff size=4
+UVM_INFO md_componentes.sv(227) @ 5090000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5090000
+UVM_INFO scoreboard.sv(223) @ 5090000: uvm_test_top.env.sb [scoreboard] [IRQ #57] @ 5090000
+UVM_INFO md_componentes.sv(41) @ 5090000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=4 valid=1 err=0
+UVM_INFO md_sequences.sv(144) @ 5090000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=1 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5130000: uvm_test_top.env.sb [scoreboard] [RX] #70: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5150000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5150000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5190000: uvm_test_top.env.sb [scoreboard] [RX] #71: data=0xffffffff off=2 size=4 err=1 should_drop=1
+UVM_INFO scoreboard.sv(156) @ 5190000: uvm_test_top.env.sb [scoreboard] DROP OK: RX#71 off=2 size=4
+UVM_WARNING apb_componentes.sv(142) @ 5210000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO md_componentes.sv(41) @ 5210000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(144) @ 5210000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado ILEGAL: off=2 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5250000: uvm_test_top.env.sb [scoreboard] [RX] #72: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5270000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5270000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5310000: uvm_test_top.env.sb [scoreboard] [RX] #73: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5330000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5330000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 5370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(143) @ 5370000: uvm_test_top.env.sb [scoreboard] [RX] #74: data=0xffffffff off=3 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5370000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffffffff off=0 size=4
+UVM_INFO scoreboard.sv(214) @ 5370000: uvm_test_top.env.sb [scoreboard] TX MATCH OK: data=0xffffffff size=4
+UVM_INFO md_componentes.sv(227) @ 5390000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5390000
+UVM_INFO scoreboard.sv(223) @ 5390000: uvm_test_top.env.sb [scoreboard] [IRQ #58] @ 5390000
+UVM_INFO md_componentes.sv(41) @ 5390000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=3 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5390000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=3 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5430000: uvm_test_top.env.sb [scoreboard] [RX] #75: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5430000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5430000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 5450000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5450000
+UVM_INFO scoreboard.sv(223) @ 5450000: uvm_test_top.env.sb [scoreboard] [IRQ #59] @ 5450000
+UVM_INFO md_componentes.sv(41) @ 5450000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5450000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5490000: uvm_test_top.env.sb [scoreboard] [RX] #76: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5490000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5490000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 5510000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5510000
+UVM_INFO scoreboard.sv(223) @ 5510000: uvm_test_top.env.sb [scoreboard] [IRQ #60] @ 5510000
+UVM_INFO md_componentes.sv(41) @ 5510000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5510000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5550000: uvm_test_top.env.sb [scoreboard] [RX] #77: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5550000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5550000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 5570000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5570000
+UVM_INFO scoreboard.sv(223) @ 5570000: uvm_test_top.env.sb [scoreboard] [IRQ #61] @ 5570000
+UVM_INFO md_componentes.sv(41) @ 5570000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5570000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5610000: uvm_test_top.env.sb [scoreboard] [RX] #78: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5610000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5610000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_WARNING apb_componentes.sv(142) @ 5630000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(187) @ 5630000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5630000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 5630000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5630000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 5650000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5650000
+UVM_INFO scoreboard.sv(223) @ 5650000: uvm_test_top.env.sb [scoreboard] [IRQ #62] @ 5650000
+UVM_INFO scoreboard.sv(143) @ 5670000: uvm_test_top.env.sb [scoreboard] [RX] #79: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5670000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5670000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO scoreboard.sv(187) @ 5690000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5690000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(41) @ 5690000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5690000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(127) @ 5710000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO md_componentes.sv(227) @ 5710000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5710000
+UVM_INFO scoreboard.sv(223) @ 5710000: uvm_test_top.env.sb [scoreboard] [IRQ #63] @ 5710000
+UVM_INFO scoreboard.sv(143) @ 5730000: uvm_test_top.env.sb [scoreboard] [RX] #80: data=0xffffffff off=1 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5730000: uvm_test_top.env.sb [scoreboard] [TX] data=0xff000000 off=3 size=1
+UVM_ERROR scoreboard.sv(202) @ 5730000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x000000ff (size=1)
+  Recibido: 0xff000000 (size=1)
+UVM_INFO md_componentes.sv(227) @ 5750000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5750000
+UVM_INFO scoreboard.sv(223) @ 5750000: uvm_test_top.env.sb [scoreboard] [IRQ #64] @ 5750000
+UVM_INFO md_componentes.sv(41) @ 5750000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=1 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5750000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=1 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5790000: uvm_test_top.env.sb [scoreboard] [RX] #81: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5810000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5810000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5850000: uvm_test_top.env.sb [scoreboard] [RX] #82: data=0xffffffff off=0 size=4 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5870000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=4 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5870000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=4 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 5910000: uvm_test_top.env.sb [scoreboard] [RX] #83: data=0xffffffff off=0 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 5910000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 5910000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO scoreboard.sv(187) @ 5930000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 5930000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO md_componentes.sv(41) @ 5930000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=0 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 5930000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=0 size=1 data=0xffffffff
+UVM_INFO md_componentes.sv(227) @ 5950000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 5950000
+UVM_INFO scoreboard.sv(223) @ 5950000: uvm_test_top.env.sb [scoreboard] [IRQ #65] @ 5950000
+UVM_WARNING apb_componentes.sv(142) @ 5970000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(143) @ 5970000: uvm_test_top.env.sb [scoreboard] [RX] #84: data=0xffffffff off=2 size=2 err=0 should_drop=0
+UVM_INFO md_componentes.sv(41) @ 5990000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=2 valid=1 err=1
+UVM_INFO md_sequences.sv(127) @ 5990000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=2 data=0xffffffff
+UVM_INFO scoreboard.sv(143) @ 6030000: uvm_test_top.env.sb [scoreboard] [RX] #85: data=0xffffffff off=2 size=1 err=0 should_drop=0
+UVM_INFO scoreboard.sv(187) @ 6030000: uvm_test_top.env.sb [scoreboard] [TX] data=0xffff0000 off=2 size=3
+UVM_ERROR scoreboard.sv(202) @ 6030000: uvm_test_top.env.sb [scoreboard] TX DATA MISMATCH:
+  Esperado: 0x00ffffff (size=3)
+  Recibido: 0xffff0000 (size=3)
+UVM_INFO md_componentes.sv(227) @ 6050000: uvm_test_top.env.irq_mon [IRQ_MON] [IRQ] @ 6050000
+UVM_INFO scoreboard.sv(223) @ 6050000: uvm_test_top.env.sb [scoreboard] [IRQ #66] @ 6050000
+UVM_INFO md_componentes.sv(41) @ 6050000: uvm_test_top.env.rx_agt.driver [RX_DRV] [RX] data=0xffffffff offset=2 size=1 valid=1 err=0
+UVM_INFO md_sequences.sv(127) @ 6050000: uvm_test_top.env.rx_agt.sequencer@@rx_seq [rx_mixed_seq] Enviado LEGAL: off=2 size=1 data=0xffffffff
+UVM_INFO test_general.sv(296) @ 6130000: uvm_test_top [test_general] MD test completado
+UVM_INFO scoreboard.sv(127) @ 6210000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=1 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 6950000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_WARNING apb_componentes.sv(142) @ 7050000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 7130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 7210000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 7610000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 7850000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 8330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 8490000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 8890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 9070000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 9470000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 9710000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 9790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 10290000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 10370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 10450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 10790000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 10870000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 11210000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 11690000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12010000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12170000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12250000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 12430000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_WARNING apb_componentes.sv(142) @ 12610000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 12770000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12850000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12930000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 13570000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 13730000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 13830000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 14150000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 14230000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 14790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 14890000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 14970000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 15130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 15210000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 15370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 15850000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 16330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 16890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17610000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17690000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO test_general.sv(227) @ 17694000: uvm_test_top [test_general] APB test completado: exitosas=62 ilegales=15
+UVM_INFO scoreboard.sv(235) @ 19770000: uvm_test_top.env.sb [scoreboard] CNT_DROP OK: 7
+UVM_INFO test_general.sv(306) @ 19770000: uvm_test_top [test_general] STATUS final: cnt_drop=7, rx_lvl=0, tx_lvl=0
+UVM_INFO scoreboard.sv(302) @ 19770000: uvm_test_top.env.sb [scoreboard] MODEL STATUS: pending_bytes=0, tx_generated=84, rx_consumed=78
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 19770000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO scoreboard.sv(270) @ 19770000: uvm_test_top.env.sb [scoreboard] 
 ==========================================
   RESUMEN SCOREBOARD
 ==========================================
-  RX packets recibidos:   0
-  Drops esperados:        0
-  Drops reales (CNT_DROP):0
-  TX generados (modelo):  0
-  TX recibidos:           0
-  TX correctos:           0
-  TX incorrectos:         0
-  IRQs recibidas:         0
-  Errores totales:        0
+  RX packets recibidos:   85
+  Drops esperados:        7
+  Drops reales (CNT_DROP):7
+  TX generados (modelo):  84
+  TX recibidos:           84
+  TX correctos:           23
+  TX incorrectos:         61
+  IRQs recibidas:         66
+  Errores totales:        61
 ==========================================
-UVM_INFO scoreboard.sv(279) @ 24450000: uvm_test_top.env.sb [scoreboard] TEST PASADO
-UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(901) @ 24450000: reporter [UVM/REPORT/SERVER] 
+UVM_ERROR scoreboard.sv(283) @ 19770000: uvm_test_top.env.sb [scoreboard] TEST FALLIDO
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(901) @ 19770000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   70
-UVM_WARNING :   24
-UVM_ERROR :    0
+UVM_INFO :  590
+UVM_WARNING :   27
+UVM_ERROR :   62
 UVM_FATAL :    0
 ** Report counts by id
+[IRQ_MON]    66
 [RNTST]     1
-[RX_DRV]     1
+[RX_DRV]    87
 [TB_TOP]     3
 [TEST_DONE]     1
 [UVM/RELNOTES]     1
 [aligner_env]     2
-[apb_driver]    24
-[scoreboard]    55
-[test_general]     6
+[apb_driver]    15
+[rx_mixed_seq]    86
+[scoreboard]   407
+[test_general]    10
 
 $finish called from file "/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
-$finish at simulation time             24450000
+$finish at simulation time             19770000
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 24450000 ps
-CPU Time:      1.380 seconds;       Data structure size:   0.2Mb
-Mon Jun  8 22:36:31 2026
+Time: 19770000 ps
+CPU Time:      1.560 seconds;       Data structure size:   0.2Mb
+Mon Jun  8 23:12:02 2026

@@ -41,3 +41,11 @@
   CREATE_STREAM @850000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1251}
   CREATE_STREAM @850000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1231}
   CREATE_STREAM @850000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1231}
+  CREATE_STREAM @430000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1129}
+  CREATE_STREAM @430000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1129}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1259}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1259}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1277}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1259}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1281}
+  CREATE_STREAM @930000 {NAME:rx_seq T:Transactions SCOPE:uvm_test_top.env.rx_agt.sequencer STREAM:1261}
