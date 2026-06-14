@@ -67,7 +67,7 @@ interface aligner_if (input logic clk, input logic reset_n);
 
     // Modports
     modport rx_driver_mp  (clocking rx_driver_cb,  input clk, reset_n);
-    modport rx_monitor_mp (clocking rx_monitor_cb, input clk, reset_n);
+    modport rx_monitor_mp (clocking rx_monitor_cb, input clk, reset_n, input md_rx_err);
     modport tx_driver_mp  (clocking tx_driver_cb,  input clk, reset_n);
     modport tx_monitor_mp (clocking tx_monitor_cb, input clk, reset_n);
     modport apb_driver_mp (clocking apb_cb,        input clk, reset_n);
