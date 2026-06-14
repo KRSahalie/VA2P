@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12-SP2; Runtime version R-2020.12-SP2;  Jun 14 13:30 2026
+Compiler version R-2020.12-SP2; Runtime version R-2020.12-SP2;  Jun 14 14:05 2026
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -71,15 +71,15 @@ UVM_INFO test_general.sv(316) @ 0: uvm_test_top [test_general]
 ==================================================
   TEST GENERAL CONFIGURATION
 ==================================================
-  SEMILLA            = 1039454574
+  SEMILLA            = 936038579
   TEST_MODE          = APB_ONLY
-  APB_NUM_TRANS      = 326
-  MD_NUM_PKTS        = 163
-  MD_PESO_LEGAL      = 34%
+  APB_NUM_TRANS      = 234
+  MD_NUM_PKTS        = 179
+  MD_PESO_LEGAL      = 64%
   CTRL_SIZE          = 1
   CTRL_OFFSET        = 0
-  MD_PATRON          = INCR
-  TIMEOUT_MS         = 270
+  MD_PATRON          = ZEROS
+  TIMEOUT_MS         = 474
 ==================================================
 UVM_INFO tb_top.sv(116) @ 190000: reporter [TB_TOP] Reset deasserted
 UVM_INFO md_componentes.sv(31) @ 210000: uvm_test_top.env.rx_agt.driver [RX_DRV] Reset liberado
@@ -89,103 +89,72 @@ UVM_INFO test_general.sv(131) @ 350000: uvm_test_top [test_general] IRQEN config
 UVM_INFO test_general.sv(144) @ 350000: uvm_test_top [test_general] Drenando pipeline del DUT...
 UVM_INFO test_general.sv(154) @ 430000: uvm_test_top [test_general] Pipeline drenado OK
 UVM_INFO scoreboard.sv(122) @ 430000: uvm_test_top.env.sb [scoreboard] Scoreboard ARMADO — verificación activa
-UVM_INFO test_general.sv(166) @ 430000: uvm_test_top [test_general] Iniciando 326 transacciones APB
-UVM_INFO scoreboard.sv(127) @ 750000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 1010000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 1110000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 1510000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 1670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 1930000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 2250000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 2330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 2430000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 2510000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 2670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 2770000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 3090000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 3190000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 3850000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 4010000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 4410000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 4490000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 4910000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 5090000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 5170000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 5330000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 5730000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 6310000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 6490000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 6890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 7050000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 7150000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 7490000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 7570000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 7670000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 7830000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 7990000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 8630000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 8970000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 9290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 9530000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 10030000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 10270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 11870000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 12110000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 12290000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 13650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 14070000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO test_general.sv(166) @ 430000: uvm_test_top [test_general] Iniciando 234 transacciones APB
+UVM_INFO scoreboard.sv(127) @ 750000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 1070000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 1310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 1390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 1570000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 1650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 1730000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 2050000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 2130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 2290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 2450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 2790000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_WARNING apb_componentes.sv(142) @ 3210000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 3450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 3930000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 4030000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 4270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 5790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 6050000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 6130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 6370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 6450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 6930000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 7590000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 8070000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 8310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 8410000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 8970000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 10090000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 10190000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 10830000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 11790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 11890000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 11970000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12130000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 12290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 12470000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 13190000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 14230000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
 UVM_WARNING apb_componentes.sv(142) @ 14330000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 14490000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 14570000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 14650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 15230000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 15310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 14410000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 14490000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 14590000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 15310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 15390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
 UVM_WARNING apb_componentes.sv(142) @ 15490000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 15970000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 16290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 16790000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 17030000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 17210000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 17310000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 17390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 17710000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 17810000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 17890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 18210000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 18450000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 18610000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 18930000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 19110000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 19430000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 19750000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 20090000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 20410000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 20650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 21050000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 21230000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 21310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 21550000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 22030000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 22110000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 22270000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 23090000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 23590000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_WARNING apb_componentes.sv(142) @ 23770000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 23850000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 23950000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 24670000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 25390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_WARNING apb_componentes.sv(142) @ 25490000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
-UVM_INFO scoreboard.sv(127) @ 25650000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 26370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=1 size=1 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 26770000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
-UVM_INFO scoreboard.sv(127) @ 26930000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
-UVM_INFO test_general.sv(227) @ 27177000: uvm_test_top [test_general] APB test completado: exitosas=68 ilegales=33
-UVM_INFO scoreboard.sv(235) @ 29750000: uvm_test_top.env.sb [scoreboard] CNT_DROP OK: 0
-UVM_INFO test_general.sv(306) @ 29750000: uvm_test_top [test_general] STATUS final: cnt_drop=0, rx_lvl=0, tx_lvl=0
-UVM_INFO scoreboard.sv(302) @ 29750000: uvm_test_top.env.sb [scoreboard] MODEL STATUS: pending_bytes=0, tx_generated=0, rx_consumed=0
-UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 29750000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO scoreboard.sv(270) @ 29750000: uvm_test_top.env.sb [scoreboard] 
+UVM_WARNING apb_componentes.sv(142) @ 15590000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 15830000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 16070000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=1 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 16170000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 16890000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=2 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 16990000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 17310000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=0 size=4 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17390000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 17790000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_WARNING apb_componentes.sv(142) @ 18130000: uvm_test_top.env.apb_agt.driver [apb_driver] APB WRITE at addr 0x0 returned error (pslverr=1)
+UVM_INFO scoreboard.sv(127) @ 18290000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=2 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 18370000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=3 size=1 (pending_bytes=0 flushed)
+UVM_INFO scoreboard.sv(127) @ 18850000: uvm_test_top.env.sb [scoreboard] Config actualizada: offset=2 size=3 (pending_bytes=0 flushed)
+UVM_INFO test_general.sv(227) @ 19500000: uvm_test_top [test_general] APB test completado: exitosas=43 ilegales=17
+UVM_INFO scoreboard.sv(235) @ 22070000: uvm_test_top.env.sb [scoreboard] CNT_DROP OK: 0
+UVM_INFO test_general.sv(306) @ 22070000: uvm_test_top [test_general] STATUS final: cnt_drop=0, rx_lvl=0, tx_lvl=0
+UVM_INFO scoreboard.sv(302) @ 22070000: uvm_test_top.env.sb [scoreboard] MODEL STATUS: pending_bytes=0, tx_generated=0, rx_consumed=0
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 22070000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO scoreboard.sv(270) @ 22070000: uvm_test_top.env.sb [scoreboard] 
 ==========================================
   RESUMEN SCOREBOARD
 ==========================================
@@ -199,13 +168,13 @@ UVM_INFO scoreboard.sv(270) @ 29750000: uvm_test_top.env.sb [scoreboard]
   IRQs recibidas:         0
   Errores totales:        0
 ==========================================
-UVM_INFO scoreboard.sv(285) @ 29750000: uvm_test_top.env.sb [scoreboard] TEST PASADO
-UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(901) @ 29750000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO scoreboard.sv(285) @ 22070000: uvm_test_top.env.sb [scoreboard] TEST PASADO
+UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_server.svh(901) @ 22070000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   80
-UVM_WARNING :   33
+UVM_INFO :   65
+UVM_WARNING :   17
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
@@ -215,13 +184,13 @@ UVM_FATAL :    0
 [TEST_DONE]     1
 [UVM/RELNOTES]     1
 [aligner_env]     2
-[apb_driver]    33
-[scoreboard]    63
+[apb_driver]    17
+[scoreboard]    48
 [test_general]     8
 
 $finish called from file "/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh", line 527.
-$finish at simulation time             29750000
+$finish at simulation time             22070000
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 29750000 ps
-CPU Time:      1.450 seconds;       Data structure size:   0.2Mb
-Sun Jun 14 13:30:04 2026
+Time: 22070000 ps
+CPU Time:      1.210 seconds;       Data structure size:   0.2Mb
+Sun Jun 14 14:05:25 2026
