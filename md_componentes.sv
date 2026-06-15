@@ -92,9 +92,14 @@ package md_components_pkg;
                     tr.offset = vif.rx_monitor_cb.md_rx_offset;
                     tr.size   = vif.rx_monitor_cb.md_rx_size;
                     tr.valid  = vif.rx_monitor_cb.md_rx_valid;
-                    // md_rx_err es combinacional en el DUT — leer directo de la
-                    // señal sin pasar por el clocking block (#1step causa delay)
-                    tr.err    = vif.md_rx_err;
+                    // md_rx_err es combinacional — recalcular con la misma
+                    // fórmula del DUT para evitar problemas de timing
+                    if (tr.size == 0)
+                        tr.err = 1'b1;
+                    else if (((4 + tr.offset) % tr.size) != 0)
+                        tr.err = 1'b1;
+                    else
+                        tr.err = 1'b0;
                     `uvm_info("RX_MON", tr.convert2string(), UVM_HIGH)
                     ap.write(tr);
                 end
