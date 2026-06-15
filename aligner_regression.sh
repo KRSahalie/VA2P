@@ -202,7 +202,7 @@ for i in $(seq 1 $NUM_TESTS); do
         eval $CMD > $LOG_FILE 2>&1
         
         HAS_PASSED=$(grep -c "TEST PASADO" $LOG_FILE)
-        HAS_ERROR=$(grep -cE "UVM_ERROR|TEST FALLIDO" $LOG_FILE)
+        HAS_ERROR=$(grep -E "UVM_ERROR|TEST FALLIDO" $LOG_FILE | grep -cv "UVM_ERROR :[ ]*0$")
         
         if [ "$HAS_PASSED" -gt 0 ] && [ "$HAS_ERROR" -eq 0 ]; then
             TEST_PASSED=1
