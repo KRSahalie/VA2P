@@ -125,8 +125,13 @@ package scoreboard_pkg;
         function void set_cfg(logic [1:0] off, logic [2:0] sz);
             if (off !== model.cfg_offset || sz !== model.cfg_size) begin
                 `uvm_info(get_type_name(),
-                    $sformatf("Config actualizada: offset=%0d size=%0d (pending_bytes=%0d flushed)",
-                              off, sz, model.get_pending_count()), UVM_LOW)
+                    $sformatf("Config actualizada: offset=%0d size=%0d (pending_bytes=%0d flushed, expected_tx_queue=%0d flushed)",
+                              off, sz, model.get_pending_count(), expected_tx_queue.size()), UVM_LOW)
+                // [FIX] Limpiar expectativas generadas bajo la config vieja.
+                // El DUT hace flush de su pipeline al cambiar CTRL, así que esos
+                // TX nunca van a salir con el formato viejo. Si no se limpia aquí,
+                // el scoreboard compara TXs del nuevo formato contra entradas del viejo.
+                expected_tx_queue.delete();
             end
             model.set_config(off, sz);
         endfunction
