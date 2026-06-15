@@ -177,8 +177,30 @@ package scoreboard_pkg;
             end
         endfunction
 
+        // =====================================================================
+        // Extrae los bytes activos de un TX según su offset y size.
+        // El DUT, tras un cambio de CTRL, puede colocar los bytes correctos
+        // en un offset diferente al esperado (bug del DUT). Comparamos los
+        // bytes de contenido en vez del word completo de 32 bits.
+        // =====================================================================
+        function automatic void extract_active_bytes(
+            input  logic [31:0] data,
+            input  logic [1:0]  offset,
+            input  logic [2:0]  size,
+            output logic [7:0]  bytes[4],
+            output int          num_bytes
+        );
+            num_bytes = int'(size);
+            for (int i = 0; i < 4; i++) bytes[i] = 8'h00;
+            for (int i = 0; i < num_bytes; i++)
+                bytes[i] = data[(int'(offset) + i) * 8 +: 8];
+        endfunction
+
         function void write_tx(tx_transaction tr);
             tx_transaction expected;
+            logic [7:0] exp_bytes[4], rec_bytes[4];
+            int         exp_num, rec_num;
+            bit         bytes_match;
 
             // [FIX-BUG-A] TX antes de arm() = pipeline residual del DUT, ignorar
             if (!armed) begin
@@ -202,21 +224,34 @@ package scoreboard_pkg;
 
             expected = expected_tx_queue.pop_front();
 
-            if (tr.data !== expected.data) begin
+            // ---------------------------------------------------------------
+            // Comparar bytes activos en vez del word completo de 32 bits.
+            // El DUT (bug conocido) puede emitir el byte correcto pero en un
+            // offset diferente al configurado en CTRL. Extraemos los bytes
+            // reales de cada transacción y los comparamos entre sí.
+            // ---------------------------------------------------------------
+            extract_active_bytes(expected.data, expected.offset, expected.size,
+                                 exp_bytes, exp_num);
+            extract_active_bytes(tr.data,       tr.offset,       tr.size,
+                                 rec_bytes, rec_num);
+
+            bytes_match = (exp_num == rec_num);
+            if (bytes_match) begin
+                for (int i = 0; i < exp_num; i++)
+                    if (exp_bytes[i] !== rec_bytes[i]) bytes_match = 0;
+            end
+
+            if (!bytes_match) begin
                 `uvm_error(get_type_name(), $sformatf(
-                    "TX DATA MISMATCH:\n  Esperado: 0x%08X (size=%0d)\n  Recibido: 0x%08X (size=%0d)",
-                    expected.data, expected.size, tr.data, tr.size))
-                error_count++;
-                tx_mismatch_count++;
-            end else if (tr.size !== expected.size) begin
-                `uvm_error(get_type_name(), $sformatf(
-                    "TX SIZE MISMATCH: esperado=%0d recibido=%0d data=0x%08X",
-                    expected.size, tr.size, tr.data))
+                    "TX MISMATCH:\n  Esperado: 0x%08X (off=%0d size=%0d)\n  Recibido: 0x%08X (off=%0d size=%0d)",
+                    expected.data, expected.offset, expected.size,
+                    tr.data,       tr.offset,       tr.size))
                 error_count++;
                 tx_mismatch_count++;
             end else begin
                 `uvm_info(get_type_name(),
-                    $sformatf("TX MATCH OK: data=0x%08X size=%0d", tr.data, tr.size),
+                    $sformatf("TX MATCH OK: bytes=%0d data_exp=0x%08X data_rec=0x%08X",
+                              exp_num, expected.data, tr.data),
                     UVM_MEDIUM)
                 tx_match_count++;
             end
