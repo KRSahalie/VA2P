@@ -180,6 +180,7 @@ package scoreboard_pkg;
         endfunction
 
         function void report_phase(uvm_phase phase);
+            string reporte_str;
             super.report_phase(phase);
             
             if (expected_tx_queue.size() > 0) begin
@@ -191,20 +192,8 @@ package scoreboard_pkg;
                 `uvm_info(get_type_name(), $sformatf("BYTES PENDIENTES EN MODELO: %0d (puede ser normal si el test termino abruptamente)", model.get_pending_count()), UVM_MEDIUM)
             end
 
-            `uvm_info(get_type_name(), $sformatf({
-                "\n==========================================\n",
-                "  RESUMEN SCOREBOARD\n",
-                "==========================================\n",
-                "  RX packets recibidos:   %0d\n",
-                "  Drops esperados:        %0d\n",
-                "  Drops reales (CNT_DROP):%0d\n",
-                "  TX generados (modelo):  %0d\n",
-                "  TX recibidos (fisicos): %0d\n",
-                "  TX correctos:           %0d\n",
-                "  TX incorrectos:         %0d\n",
-                "  IRQs recibidas:         %0d\n",
-                "  Errores totales:        %0d\n",
-                "=========================================="},
+            // CORRECCIÓN SEGURA: Construir la cadena en una variable primero para evitar problemas con la macro UVM
+            reporte_str = $sformatf("\n==========================================\n  RESUMEN SCOREBOARD\n==========================================\n  RX packets recibidos:   %0d\n  Drops esperados:        %0d\n  Drops reales (CNT_DROP):%0d\n  TX generados (modelo):  %0d\n  TX recibidos (fisicos): %0d\n  TX correctos:           %0d\n  TX incorrectos:         %0d\n  IRQs recibidas:         %0d\n  Errores totales:        %0d\n==========================================",
                 rx_packet_count,
                 expected_drop_count,
                 actual_drop_count,
@@ -213,7 +202,9 @@ package scoreboard_pkg;
                 tx_match_count,
                 tx_mismatch_count,
                 irq_count,
-                error_count), UVM_NONE)
+                error_count);
+
+            `uvm_info(get_type_name(), reporte_str, UVM_NONE)
 
             if (error_count > 0)
                 `uvm_error(get_type_name(), "TEST FALLIDO")
