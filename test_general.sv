@@ -194,20 +194,22 @@ class test_general extends uvm_test;
 
                         // [FIX-BUG2] Solo actualizar scoreboard si DUT aceptó
                         if (status == UVM_IS_OK && is_valid_ctrl(new_size, new_offset)) begin
-                            // Esperar que el DUT drene TX FIFO antes de cambiar config del scoreboard.
-                            // Sin esto, el scoreboard hace flush de expected_tx_queue mientras el DUT
-                            // todavía tiene TXs en vuelo con la config anterior → DATA MISMATCH falso.
+                            // Esperar que el DUT drene AMBOS FIFOs (rx_lvl=0 Y tx_lvl=0)
+                            // antes de notificar el cambio al scoreboard.
+                            // - tx_lvl=0 solo no alcanza: el DUT puede tener paquetes en el
+                            //   RX FIFO que aún procesa con la config anterior.
+                            // - rx_lvl=0 garantiza que no hay nada pendiente de procesar.
                             begin
                                 uvm_status_e   drain_status;
                                 uvm_reg_data_t rd;
-                                int wait_cycles = 500;
+                                int wait_cycles = 2000;
                                 do begin
                                     #100;
                                     env.reg_model.status.read(drain_status, rd);
                                     wait_cycles--;
-                                end while (rd[19:16] != 4'h0 && wait_cycles > 0);
+                                end while (rd[19:8] != 12'h0 && wait_cycles > 0);
                                 if (wait_cycles == 0)
-                                    `uvm_warning(get_type_name(), "Timeout drenando TX FIFO antes de cambio de CTRL")
+                                    `uvm_warning(get_type_name(), "Timeout drenando FIFOs antes de cambio de CTRL")
                             end
                             env.set_sb_config(new_offset, new_size);
                             ctrl_size   = new_size;
