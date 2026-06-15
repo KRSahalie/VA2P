@@ -124,9 +124,11 @@ package scoreboard_pkg;
         endfunction
 
         function void set_cfg(logic [1:0] off, logic [2:0] sz);
+            string msg_str;
             if (off !== model.cfg_offset || sz !== model.cfg_size) begin
-                `uvm_info(get_type_name(), $sformatf("Cambio dinamico detectado en CTRL -> Viejo(OFF=%0d, SZ=%0d) -> Nuevo(OFF=%0d, SZ=%0d). Forzando Flush.", 
-                    model.cfg_offset, model.cfg_size, off, sz), UVM_MEDIUM)
+                msg_str = $sformatf("Cambio dinamico detectado en CTRL -> Viejo(OFF=%0d, SZ=%0d) -> Nuevo(OFF=%0d, SZ=%0d). Forzando Flush.", 
+                    model.cfg_offset, model.cfg_size, off, sz);
+                `uvm_info(get_type_name(), msg_str, UVM_MEDIUM)
                 
                 expected_tx_queue.delete();
                 model.pending_bytes.delete(); 
@@ -135,12 +137,14 @@ package scoreboard_pkg;
         endfunction
 
         virtual function void write_rx(rx_transaction rx);
+            string msg_str;
             if (!armed) return;
 
             rx_packet_count++;
             if (rx.err) begin
                 expected_drop_count++;
-                `uvm_info(get_type_name(), $sformatf("RX Packet detectado con ERR=1 (Drop Esperado #%0d)", expected_drop_count), UVM_HIGH)
+                msg_str = $sformatf("RX Packet detectado con ERR=1 (Drop Esperado #%0d)", expected_drop_count);
+                `uvm_info(get_type_name(), msg_str, UVM_HIGH)
             end else begin
                 model.process_rx_packet(rx, expected_tx_queue);
             end
@@ -148,11 +152,13 @@ package scoreboard_pkg;
 
         virtual function void write_tx(tx_transaction tx);
             tx_transaction exp_tx;
+            string msg_str;
 
             if (!armed) return;
 
             if (expected_tx_queue.size() == 0) begin
-                `uvm_error(get_type_name(), $sformatf("Paquete TX recibido inesperado. No hay transacciones esperadas en la cola. Recibido: %s", tx.convert2string()))
+                msg_str = $sformatf("Paquete TX recibido inesperado. No hay transacciones esperadas en la cola. Recibido: %s", tx.convert2string());
+                `uvm_error(get_type_name(), msg_str)
                 error_count++;
                 tx_mismatch_count++;
                 return;
@@ -162,37 +168,44 @@ package scoreboard_pkg;
 
             if (tx.do_compare(exp_tx, null)) begin
                 tx_match_count++;
-                `uvm_info(get_type_name(), $sformatf("MATCH exitoso (TX #%0d): %s", tx_match_count, tx.convert2string()), UVM_HIGH)
+                msg_str = $sformatf("MATCH exitoso (TX #%0d): %s", tx_match_count, tx.convert2string());
+                `uvm_info(get_type_name(), msg_str, UVM_HIGH)
             end else begin
                 tx_mismatch_count++;
                 error_count++;
-                `uvm_error(get_type_name(), $sformatf("MISMATCH en TX #%0d\nESPERADO: %s\nRECIBIDO: %s", 
-                    (tx_match_count + tx_mismatch_count), exp_tx.convert2string(), tx.convert2string()))
+                msg_str = $sformatf("MISMATCH en TX #%0d\nESPERADO: %s\nRECIBIDO: %s", 
+                    (tx_match_count + tx_mismatch_count), exp_tx.convert2string(), tx.convert2string());
+                `uvm_error(get_type_name(), msg_str)
             end
         endfunction
 
         virtual function void write_irq(irq_transaction irq);
+            string msg_str;
             if (!armed) return;
             if (irq.irq_detected) begin
                 irq_count++;
-                `uvm_info(get_type_name(), $sformatf("Evento IRQ detectado en interfaz fisico (Total: %0d)", irq_count), UVM_HIGH)
+                msg_str = $sformatf("Evento IRQ detectado en interfaz fisico (Total: %0d)", irq_count);
+                `uvm_info(get_type_name(), msg_str, UVM_HIGH)
             end
         endfunction
 
         function void report_phase(uvm_phase phase);
             string reporte_str;
+            string warn_str;
+            string info_str;
             super.report_phase(phase);
             
             if (expected_tx_queue.size() > 0) begin
-                `uvm_warning(get_type_name(), $sformatf("PAQUETES FALTANTES: Quedaron %0d transacciones sin recibir en expected_tx_queue al terminar.", expected_tx_queue.size()))
+                warn_str = $sformatf("PAQUETES FALTANTES: Quedaron %0d transacciones sin recibir en expected_tx_queue al terminar.", expected_tx_queue.size());
+                `uvm_warning(get_type_name(), warn_str)
                 error_count += expected_tx_queue.size();
             end
 
             if (model.get_pending_count() > 0) begin
-                `uvm_info(get_type_name(), $sformatf("BYTES PENDIENTES EN MODELO: %0d (puede ser normal si el test termino abruptamente)", model.get_pending_count()), UVM_MEDIUM)
+                info_str = $sformatf("BYTES PENDIENTES EN MODELO: %0d (puede ser normal si el test termino abruptamente)", model.get_pending_count());
+                `uvm_info(get_type_name(), info_str, UVM_MEDIUM)
             end
 
-            // CORRECCIÓN SEGURA: Construir la cadena en una variable primero para evitar problemas con la macro UVM
             reporte_str = $sformatf("\n==========================================\n  RESUMEN SCOREBOARD\n==========================================\n  RX packets recibidos:   %0d\n  Drops esperados:        %0d\n  Drops reales (CNT_DROP):%0d\n  TX generados (modelo):  %0d\n  TX recibidos (fisicos): %0d\n  TX correctos:           %0d\n  TX incorrectos:         %0d\n  IRQs recibidas:         %0d\n  Errores totales:        %0d\n==========================================",
                 rx_packet_count,
                 expected_drop_count,
@@ -226,11 +239,10 @@ package scoreboard_pkg;
         endfunction
 
         function void print_model_status();
-            `uvm_info(get_type_name(), $sformatf(
-                "MODEL STATUS: pending_bytes=%0d, tx_generated=%0d, rx_consumed=%0d",
-                model.get_pending_count(),
-                model.tx_packets_generated,
-                model.rx_packets_consumed), UVM_LOW)
+            string msg_str;
+            msg_str = $sformatf("MODEL STATUS: pending_bytes=%0d, tx_generated=%0d, rx_consumed=%0d",
+                model.get_pending_count(), model.tx_packets_generated, model.rx_packets_consumed);
+            `uvm_info(get_type_name(), msg_str, UVM_LOW)
         endfunction
 
     endclass : scoreboard
