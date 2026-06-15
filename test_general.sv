@@ -63,13 +63,13 @@ class test_general extends uvm_test;
 
     function void imprimir_configuracion();
         `uvm_info(get_type_name(), "==========================================", UVM_NONE)
-        `uvm_info(get_type_name(), "  CONFIGURACIÓN DEL TEST GENERAL", UVM_NONE)
+        `uvm_info(get_type_name(), "  CONFIGURACION DEL TEST GENERAL", UVM_NONE)
         `uvm_info(get_type_name(), "==========================================", UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Semilla:         %0d", semilla), UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Modo de Test:    %s", test_mode), UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Transacciones APB:%0d", apb_num_trans), UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Paquetes MD:     %0d", md_num_pkts), UVM_NONE)
-        `uvm_info(get_type_name(), $sformatf("  Patrón MD:       %s", md_patron), UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("  Patron MD:       %s", md_patron), UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Config Inicial:  OFFSET=%0d, SIZE=%0d", ctrl_offset, ctrl_size), UVM_NONE)
         `uvm_info(get_type_name(), "==========================================", UVM_NONE)
     endfunction
@@ -88,7 +88,7 @@ class test_general extends uvm_test;
     task configurar_irqen();
         uvm_status_e status;
         `uvm_info(get_type_name(), "Configurando registro IRQEN inicial...", UVM_LOW)
-        env.reg_model.irqen.write(status, 32'h0000_001F); // Habilitar todas las interrupciones
+        env.reg_model.irqen.write(status, 32'h0000_001F);
         if (status != UVM_IS_OK)
             `uvm_error(get_type_name(), "Error al escribir registro IRQEN por APB")
     endtask
@@ -100,7 +100,7 @@ class test_general extends uvm_test;
 
     task test_md();
         md_base_seq seq;
-        `uvm_info(get_type_name(), "Iniciando generación de tráfico Memory Data (MD)...", UVM_LOW)
+        `uvm_info(get_type_name(), "Iniciando generacion de trafico Memory Data (MD)...", UVM_LOW)
 
         if (md_patron == "ONES") begin
             md_ones_seq s = md_ones_seq::type_id::create("md_ones_seq");
@@ -114,12 +114,9 @@ class test_general extends uvm_test;
         end
 
         seq.start(env.rx_agt.sequencer);
-        `uvm_info(get_type_name(), "Tráfico MD completado.", UVM_LOW)
+        `uvm_info(get_type_name(), "Trafico MD completado.", UVM_LOW)
     endtask
 
-    // =========================================================================
-    // TAREA DE PRUEBA APB CORREGIDA
-    // =========================================================================
     task test_apb();
         uvm_status_e status;
         logic [31:0] rd_data;
@@ -131,7 +128,7 @@ class test_general extends uvm_test;
             int op = $urandom_range(0, 2);
 
             case(op)
-                0: begin // Cambiar configuración dinámicamente
+                0: begin 
                     logic [2:0] new_size;
                     logic [1:0] new_offset;
                     
@@ -150,17 +147,16 @@ class test_general extends uvm_test;
                         ctrl_size   = new_size;
                         ctrl_offset = new_offset;
                         
-                        #40; // Sincronización del hardware
+                        #40; 
                         
-                        // ¡CORRECCIÓN!: Notificar la nueva configuración exacta al scoreboard
                         env.set_sb_config(new_offset, new_size);
                         successful_writes++;
                     end else begin
-                        `uvm_error(get_type_name(), "Falló la escritura APB en el registro CTRL")
+                        `uvm_error(get_type_name(), "Fallo la escritura APB en el registro CTRL")
                     end
                 end
 
-                1: begin // Leer STATUS
+                1: begin 
                     env.reg_model.status.read(status, rd_data);
                     if (status == UVM_IS_OK) begin
                         `uvm_info(get_type_name(), $sformatf("[APB_READ] STATUS = 0x%0h (CNT_DROP=%0d, RX_LVL=%0d, TX_LVL=%0d)", 
@@ -168,7 +164,7 @@ class test_general extends uvm_test;
                     end
                 end
 
-                2: begin // Leer y limpiar IRQs (W1C)
+                2: begin 
                     env.reg_model.irq.read(status, rd_data);
                     if (status == UVM_IS_OK && rd_data[4:0] != 0) begin
                         env.reg_model.irq.write(status, rd_data);
@@ -180,7 +176,7 @@ class test_general extends uvm_test;
             #( $urandom_range(10, 100) );
         end
 
-        `uvm_info(get_type_name(), $sformatf("test_apb finalizado. Cambios de configuración exitosos: %0d", successful_writes), UVM_LOW)
+        `uvm_info(get_type_name(), $sformatf("test_apb finalizado. Cambios de configuracion exitosos: %0d", successful_writes), UVM_LOW)
     endtask
 
     function void verificar();
@@ -193,7 +189,7 @@ class test_general extends uvm_test;
             cnt_drop_real = final_status[7:0];
             env.verify_drops(cnt_drop_real);
         end else begin
-            `uvm_error(get_type_name(), "No se pudo leer el registro STATUS para la verificación final")
+            `uvm_error(get_type_name(), "No se pudo leer el registro STATUS para la verificacion final")
         end
     endfunction
 
@@ -203,7 +199,7 @@ class test_general extends uvm_test;
         leer_plusargs();
         imprimir_configuracion();
 
-        #200; // Esperar reset HW
+        #200; 
 
         configurar_ctrl();
         configurar_irqen();

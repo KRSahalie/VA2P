@@ -123,15 +123,11 @@ package scoreboard_pkg;
             `uvm_info(get_type_name(), "Scoreboard ARMED. Iniciando verificaciones.", UVM_LOW)
         endfunction
 
-        // =========================================================================
-        // FUNCIÓN SET_CFG DINÁMICA Y CORREGIDA
-        // =========================================================================
         function void set_cfg(logic [1:0] off, logic [2:0] sz);
             if (off !== model.cfg_offset || sz !== model.cfg_size) begin
-                `uvm_info(get_type_name(), $sformatf("Cambio dinámico detectado en CTRL -> Viejo(OFF=%0d, SZ=%0d) -> Nuevo(OFF=%0d, SZ=%0d). Forzando Flush.", 
+                `uvm_info(get_type_name(), $sformatf("Cambio dinamico detectado en CTRL -> Viejo(OFF=%0d, SZ=%0d) -> Nuevo(OFF=%0d, SZ=%0d). Forzando Flush.", 
                     model.cfg_offset, model.cfg_size, off, sz), UVM_MEDIUM)
                 
-                // Vaciar la cola de expectativas y el pipeline del modelo de referencia
                 expected_tx_queue.delete();
                 model.pending_bytes.delete(); 
             end
@@ -179,7 +175,7 @@ package scoreboard_pkg;
             if (!armed) return;
             if (irq.irq_detected) begin
                 irq_count++;
-                `uvm_info(get_type_name(), $sformatf("Evento IRQ detectado en interfaz físico (Total: %0d)", irq_count), UVM_HIGH)
+                `uvm_info(get_type_name(), $sformatf("Evento IRQ detectado en interfaz fisico (Total: %0d)", irq_count), UVM_HIGH)
             end
         endfunction
 
@@ -192,28 +188,28 @@ package scoreboard_pkg;
             end
 
             if (model.get_pending_count() > 0) begin
-                `uvm_info(get_type_name(), $sformatf("BYTES PENDIENTES EN MODELO: %0d (puede ser normal si el test terminó abruptamente)", model.get_pending_count()), UVM_MEDIUM)
+                `uvm_info(get_type_name(), $sformatf("BYTES PENDIENTES EN MODELO: %0d (puede ser normal si el test termino abruptamente)", model.get_pending_count()), UVM_MEDIUM)
             end
 
-            `uvm_info(get_type_name(), $sformatf("\n" == "" ? "" : {"\n", 
-                "==========================================\n",
+            `uvm_info(get_type_name(), $sformatf({
+                "\n==========================================\n",
                 "  RESUMEN SCOREBOARD\n",
                 "==========================================\n",
                 "  RX packets recibidos:   %0d\n",
                 "  Drops esperados:        %0d\n",
                 "  Drops reales (CNT_DROP):%0d\n",
                 "  TX generados (modelo):  %0d\n",
-                "  TX recibidos (físicos): %0d\n",
+                "  TX recibidos (fisicos): %0d\n",
                 "  TX correctos:           %0d\n",
                 "  TX incorrectos:         %0d\n",
                 "  IRQs recibidas:         %0d\n",
                 "  Errores totales:        %0d\n",
-                "=========================================="}),
+                "=========================================="},
                 rx_packet_count,
                 expected_drop_count,
                 actual_drop_count,
                 model.tx_packets_generated,
-                tx_match_count + tx_mismatch_count,
+                (tx_match_count + tx_mismatch_count),
                 tx_match_count,
                 tx_mismatch_count,
                 irq_count,
