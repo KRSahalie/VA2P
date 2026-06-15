@@ -74,6 +74,7 @@ class test_general extends uvm_test;
 
     function bit is_valid_ctrl(int size, int offset);
         if (size == 0) return 0;
+        if (offset + size > 4) return 0;  // TX output must fit within 32-bit word
         return ((4 + offset) % size) == 0;
     endfunction
 
@@ -113,6 +114,8 @@ class test_general extends uvm_test;
         if (status != UVM_IS_OK)
             `uvm_error(get_type_name(), "Fallo al configurar CTRL")
 
+        // Esperar 2 ciclos para que el DUT aplique el nuevo CTRL antes de notificar al scoreboard
+        #40;
         env.set_sb_config(ctrl_offset, ctrl_size);
 
         `uvm_info(get_type_name(),
@@ -194,6 +197,8 @@ class test_general extends uvm_test;
 
                         // [FIX-BUG2] Solo actualizar scoreboard si DUT aceptó
                         if (status == UVM_IS_OK && is_valid_ctrl(new_size, new_offset)) begin
+                            // Esperar 2 ciclos para que el DUT aplique el nuevo CTRL
+                            #40;
                             env.set_sb_config(new_offset, new_size);
                             ctrl_size   = new_size;
                             ctrl_offset = new_offset;
