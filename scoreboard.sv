@@ -39,9 +39,8 @@ package scoreboard_pkg;
                 rx_bytes[i] = rx.data[i*8 +: 8];
 
             for (int i = 0; i < int'(rx.size); i++) begin
-                src_byte_idx = int'(rx.offset) + i;
-                if (src_byte_idx < BYTES_PER_WORD)
-                    pending_bytes.push_back(rx_bytes[src_byte_idx]);
+                src_byte_idx = (int'(rx.offset) + i) % BYTES_PER_WORD;
+                pending_bytes.push_back(rx_bytes[src_byte_idx]);
             end
 
             while (pending_bytes.size() >= int'(cfg_size)) begin
