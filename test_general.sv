@@ -194,8 +194,18 @@ class test_general extends uvm_test;
 
                         // [FIX-BUG2] Solo actualizar scoreboard si DUT aceptó
                         if (status == UVM_IS_OK && is_valid_ctrl(new_size, new_offset)) begin
+                            // [FIX-BUG1] Notificar al scoreboard INMEDIATAMENTE, antes del
+                            // drain. El DUT empieza a procesar paquetes RX con la nueva
+                            // config tan pronto el APB write es aceptado, así que el
+                            // scoreboard debe enterarse en ese mismo instante (set_cfg()
+                            // ya hace flush de pending_bytes/expected_tx_queue, igual que
+                            // el DUT hace flush de su pipeline).
+                            env.set_sb_config(new_offset, new_size);
+                            ctrl_size   = new_size;
+                            ctrl_offset = new_offset;
+
                             // Esperar que el DUT drene AMBOS FIFOs (rx_lvl=0 Y tx_lvl=0)
-                            // antes de notificar el cambio al scoreboard.
+                            // antes de continuar con la siguiente transacción APB.
                             // - tx_lvl=0 solo no alcanza: el DUT puede tener paquetes en el
                             //   RX FIFO que aún procesa con la config anterior.
                             // - rx_lvl=0 garantiza que no hay nada pendiente de procesar.
@@ -211,9 +221,6 @@ class test_general extends uvm_test;
                                 if (wait_cycles == 0)
                                     `uvm_warning(get_type_name(), "Timeout drenando FIFOs antes de cambio de CTRL")
                             end
-                            env.set_sb_config(new_offset, new_size);
-                            ctrl_size   = new_size;
-                            ctrl_offset = new_offset;
                             successful_writes++;
                         end else begin
                             `uvm_warning(get_type_name(), $sformatf(
