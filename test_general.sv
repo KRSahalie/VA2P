@@ -194,6 +194,21 @@ class test_general extends uvm_test;
 
                         // [FIX-BUG2] Solo actualizar scoreboard si DUT aceptó
                         if (status == UVM_IS_OK && is_valid_ctrl(new_size, new_offset)) begin
+                            // Esperar que el DUT drene TX FIFO antes de cambiar config del scoreboard.
+                            // Sin esto, el scoreboard hace flush de expected_tx_queue mientras el DUT
+                            // todavía tiene TXs en vuelo con la config anterior → DATA MISMATCH falso.
+                            begin
+                                uvm_status_e   drain_status;
+                                uvm_reg_data_t rd;
+                                int wait_cycles = 500;
+                                do begin
+                                    #100;
+                                    env.reg_model.status.read(drain_status, rd);
+                                    wait_cycles--;
+                                end while (rd[19:16] != 4'h0 && wait_cycles > 0);
+                                if (wait_cycles == 0)
+                                    `uvm_warning(get_type_name(), "Timeout drenando TX FIFO antes de cambio de CTRL")
+                            end
                             env.set_sb_config(new_offset, new_size);
                             ctrl_size   = new_size;
                             ctrl_offset = new_offset;
